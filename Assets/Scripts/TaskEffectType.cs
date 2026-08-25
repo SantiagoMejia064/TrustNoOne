@@ -1,0 +1,20 @@
+public enum TaskEffectType
+{
+    None,
+    BurnLights,
+    DisableRadio,
+    EnableRadio,
+    DisablePhone,
+    EnablePhone,
+    DisableTeletype,
+    EnableTeletype,
+    RequireFlashlight,
+    RemoveFlashlightRequirement,
+    IncreaseRadioInterference,
+    DecreaseRadioInterference,
+    EnableGasMask,
+    DisableGasMask,
+    TriggerAlarm,
+    StopAlarm,
+    DisableRandomInformationDevice
+}
