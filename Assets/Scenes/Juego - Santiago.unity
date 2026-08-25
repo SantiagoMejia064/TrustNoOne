@@ -6060,10 +6060,9 @@ GameObject:
   - component: {fileID: 1721317068}
   - component: {fileID: 1721317067}
   - component: {fileID: 1721317066}
-  - component: {fileID: 1721317072}
   - component: {fileID: 1721317071}
   - component: {fileID: 1721317070}
-  - component: {fileID: 1721317073}
+  - component: {fileID: 1721317072}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -6207,29 +6206,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721317065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d682958f234e9a40ab648ac1c08dd94, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c24c576341722a49a31e30e77617ad3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExteriorContaminationRandomizer
+  m_EditorClassIdentifier: Assembly-CSharp::BunkerEventRandomizer
   bunkerStateManager: {fileID: 1721317068}
   startAutomatically: 1
-  toggleIntervalRange: {x: 20, y: 45}
-  nextToggleTime: 0
---- !u!114 &1721317073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721317065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b345e297ac1c3f34b9e5af247ec94005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ElectricalOverloadRandomizer
-  bunkerStateManager: {fileID: 1721317068}
-  startAutomatically: 1
-  toggleIntervalRange: {x: 20, y: 45}
-  nextToggleTime: 0
+  randomEvents:
+  - eventType: 0
+    enabled: 1
+    activationIntervalRange: {x: 20, y: 45}
+    activeDurationRange: {x: 8, y: 15}
+  - eventType: 1
+    enabled: 1
+    activationIntervalRange: {x: 20, y: 25}
+    activeDurationRange: {x: 8, y: 15}
 --- !u!1001 &1743939082
 PrefabInstance:
   m_ObjectHideFlags: 0
