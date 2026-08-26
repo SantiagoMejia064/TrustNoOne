@@ -19,6 +19,7 @@ public class GeneratorPowerController : MonoBehaviour, IInteractable
     [SerializeField] private float failureFogDensity = 0.2f;
     [SerializeField] private float failureAmbientIntensity = 0f;
 
+    // Escucha efectos de tareas para reaccionar si alguna quema luces o exige linterna.
     private void OnEnable()
     {
         if (taskManager != null)
@@ -27,6 +28,7 @@ public class GeneratorPowerController : MonoBehaviour, IInteractable
         }
     }
 
+    // Deja de escuchar efectos cuando el generador ya no esta activo.
     private void OnDisable()
     {
         if (taskManager != null)
@@ -35,11 +37,13 @@ public class GeneratorPowerController : MonoBehaviour, IInteractable
         }
     }
 
+    // Devuelve el texto que aparece al mirar el generador.
     public string GetInteractionText()
     {
         return interactionText;
     }
 
+    // Permite usar el generador solo durante su tarea y si aun no llego al 120%.
     public bool CanInteract()
     {
         TaskData currentTask = taskManager != null ? taskManager.GetCurrentTask() : null;
@@ -51,6 +55,7 @@ public class GeneratorPowerController : MonoBehaviour, IInteractable
             && !taskManager.IsCurrentTaskResolved();
     }
 
+    // Aumenta el generador y resuelve la tarea como autorizar.
     public void Interact()
     {
         if (!CanInteract())
@@ -64,6 +69,7 @@ public class GeneratorPowerController : MonoBehaviour, IInteractable
         taskManager.ResolveCurrentTask(DecisionType.Authorize);
     }
 
+    // Aplica consecuencias secundarias recibidas desde TaskManager.
     private void HandleEffects(List<TaskEffectType> effects)
     {
         if (effects == null)
@@ -82,6 +88,7 @@ public class GeneratorPowerController : MonoBehaviour, IInteractable
         }
     }
 
+    // Apaga las luces asignadas y oscurece el ambiente para representar la falla.
     private void BurnAssignedLights()
     {
         int burnedLights = 0;
