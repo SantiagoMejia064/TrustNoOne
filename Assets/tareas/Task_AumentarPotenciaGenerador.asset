@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c96b82c6f8639b4c8fc23c12a8e30f5, type: 3}
+  m_Name: Task_AumentarPotenciaGenerador
+  m_EditorClassIdentifier: Assembly-CSharp::TaskData
+  taskId: aumentar_potencia_generador
+  title: Aumentar potencia del generador
+  message: Las luces presentan baja potencia. Aumente el generador al 120 %.
+  howToVerify: "El panel indica que la producci\xF3n energ\xE9tica ya est\xE1 dentro
+    del rango correcto."
+  difficulty: 1
+  canAppearRandomly: 1
+  truthCondition: 1
+  decisionWhenConditionIsTrue: 1
+  decisionWhenConditionIsFalse: 1
+  successAffectedSystem: 0
+  successSystemDelta: 0
+  failureAffectedSystem: 0
+  failureSystemDelta: -1
+  successEffects: 
+  failureEffects: 0100000008000000
