@@ -21,7 +21,7 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private bool enableCameraZones = true;
     [SerializeField] private float zoneInteractionDistance = 10f;
     [SerializeField] private LayerMask movementZoneLayer = ~0;
-    [SerializeField] private float defaultZoneMoveDuration = 0.55f;
+    [SerializeField] private float defaultZoneMoveDuration = 1f;
     [SerializeField] private bool rotateTowardZone = true;
 
     // private float fuerzaSalto = 5f;
