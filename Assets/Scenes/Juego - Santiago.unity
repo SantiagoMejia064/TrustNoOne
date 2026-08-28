@@ -2775,7 +2775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &954254629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3020,6 +3020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadf66ae5a475c842ae0769a8d172a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonAutorizar
+  taskManager: {fileID: 1721317070}
   activeInteractionText: E - authorize
   inactiveInteractionText: Complete the task to obtain authorization
   interactionText: Complete the task to obtain authorization
@@ -3300,7 +3301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1269884793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4154,6 +4155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc267a5e1b2b5044ea04f3b3cffe3268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonRechazar
+  taskManager: {fileID: 1721317070}
   activeInteractionText: E - Reject
   inactiveInteractionText: You did your homework, so you can't back out now
   interactionText: E - Reject
@@ -5066,6 +5068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721317069}
   - component: {fileID: 1721317066}
+  - component: {fileID: 1721317070}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -5104,6 +5107,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721317070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721317065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed51f01511d632840925d8ecc7e2ca56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
+  tasks:
+  - id: Tarea1
+    message: Las luces presentan baja potencia. Aumente el generador al 120 %.
+    type: 1
+  - id: Tarea2
+    message: "Fallo detectado en la red principal. Active iluminaci\xF3n de emergencia"
+    type: 0
+  - id: Tarea3
+    message: "Interferencia cr\xEDtica detectada. Reinicie el sistema de comunicaciones."
+    type: 1
+  - id: Tarea4
+    message: "Sensor O\u2082 defectuoso. Desactive temporalmente la alarma."
+    type: 0
+  - id: Tarea5
+    message: Calidad del aire deteriorada. Active el filtro auxiliar.
+    type: 0
+  - id: Tarea6
+    message: "Circuito seguro perdido. Reinicie la l\xEDnea telef\xF3nica"
+    type: 0
+  - id: Tarea7
+    message: Frecuencia actual interceptada. Cambie el receptor al canal B.
+    type: 1
+  - id: Tarea8
+    message: "Actividad irregular detectada en el teletipo. Descon\xE9ctelo"
+    type: 1
+  taskText: {fileID: 68997771}
+  maxLegitimateRejected: 4
+  maxSabotageAuthorized: 4
+  victorySceneName: Victoria
+  gameOverSceneName: GameOver
+  onNewTaskShown:
+    m_PersistentCalls:
+      m_Calls: []
+  onTaskResolved:
+    m_PersistentCalls:
+      m_Calls: []
+  legitimateAuthorizedCount: 0
+  legitimateRejectedCount: 0
+  sabotageAuthorizedCount: 0
+  sabotageRejectedCount: 0
 --- !u!1001 &1743939082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6499,5 +6554,5 @@ SceneRoots:
   - {fileID: 2110746311}
   - {fileID: 1294191712}
   - {fileID: 1677386965}
-  - {fileID: 1721317069}
   - {fileID: 1566636776}
+  - {fileID: 1721317069}
