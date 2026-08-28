@@ -25,5 +25,6 @@ public enum TaskConditionType
     ElectricalOverloadIsInactive,
 
     DuctContaminationIsActive,
-    DuctContaminationIsInactive
+    DuctContaminationIsInactive,
+    AuxiliaryGeneratorIsAvailable
 }

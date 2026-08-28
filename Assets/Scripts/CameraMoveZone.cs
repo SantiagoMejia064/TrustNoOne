@@ -11,6 +11,8 @@ public class CameraMoveZone : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private bool canUse = true;
+    [SerializeField] private string interactionText = "Move";
+    public string InteractionText => interactionText;
     [SerializeField] private float customMoveDuration = -1f;
 
     public Transform DestinationPoint => destinationPoint;

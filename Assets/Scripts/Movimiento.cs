@@ -23,11 +23,13 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private LayerMask movementZoneLayer = ~0;
     [SerializeField] private float defaultZoneMoveDuration = 1f;
     [SerializeField] private bool rotateTowardZone = true;
+    [SerializeField] private InteractionUI interactionUI;
 
     // private float fuerzaSalto = 5f;
     private float yaw;
     private float cameraPitch;
     private Coroutine zoneMoveRoutine;
+    private CameraMoveZone currentHoveredZone;
     // private Rigidbody rb;
 
     public static void SetLookBlocked(bool isBlocked)
@@ -121,8 +123,40 @@ public class Movimiento : MonoBehaviour
         }
 
         HandleCameraZoneClick();
+       
     }
+    private void UpdateCameraZoneInteractionUI()
+    {
+        if (interactionUI == null)
+        {
+            return;
+        }
 
+        if (!enableCameraZones || zoneMoveRoutine != null || IsLookBlocked)
+        {
+            if (currentHoveredZone != null)
+            {
+                currentHoveredZone = null;
+                interactionUI.HideInteraction();
+            }
+            return;
+        }
+
+        CameraMoveZone zone = GetCameraMoveZoneInView();
+
+        if (zone == null || !zone.CanUse || zone.DestinationPoint == null)
+        {
+            if (currentHoveredZone != null)
+            {
+                currentHoveredZone = null;
+                interactionUI.HideInteraction();
+            }
+            return;
+        }
+
+        currentHoveredZone = zone;
+        interactionUI.ShowInteraction(zone.InteractionText);
+    }
     private void LateUpdate()
     {
         if (!TryResolveCameraTransform())
@@ -142,6 +176,7 @@ public class Movimiento : MonoBehaviour
             minLookAngle,
             maxLookAngle);
         cameraTransform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
+        UpdateCameraZoneInteractionUI();
     }
 
     private void HandleCameraZoneClick()

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c96b82c6f8639b4c8fc23c12a8e30f5, type: 3}
+  m_Name: Task_reactivar_linea_telefonica
+  m_EditorClassIdentifier: Assembly-CSharp::TaskData
+  taskId: reactivar_linea_telefonica
+  title: Circuito seguro perdido
+  message: "Circuito seguro perdido. Reinicie la l\xEDnea telef\xF3nica."
+  howToVerify: "El tel\xE9fono actualmente no tiene se\xF1al (silencio)."
+  difficulty: 0
+  canAppearRandomly: 1
+  truthCondition: 0
+  decisionWhenConditionIsTrue: 0
+  decisionWhenConditionIsFalse: 0
+  successAffectedSystem: 2
+  successSystemDelta: 0
+  failureAffectedSystem: 2
+  failureSystemDelta: -1
+  successEffects: 
+  failureEffects: 
