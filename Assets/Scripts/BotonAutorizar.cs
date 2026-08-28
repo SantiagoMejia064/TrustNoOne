@@ -34,6 +34,7 @@ public class BotonAutorizar : MonoBehaviour, IInteractable
     {
         Debug.Log("Interactuando con: " + interactableName);
         taskManager?.ResolveCurrentTask(DecisionType.Authorize);
+        Desactivar();
     }
 
     public void Activar()

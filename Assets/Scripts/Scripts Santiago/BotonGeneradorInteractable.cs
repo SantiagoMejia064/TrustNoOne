@@ -7,6 +7,7 @@ public class BotonGeneradorInteractable : MonoBehaviour, IInteractable
     [SerializeField] private bool canInteract = true;
     [SerializeField] private BotonAutorizar botonAutorizar;
     [SerializeField] private BotonRechazar botonRechazar;
+    [SerializeField] private Light[] lucesParaApagar;
 
     public string GetInteractionText()
     {
@@ -31,5 +32,16 @@ public class BotonGeneradorInteractable : MonoBehaviour, IInteractable
         {
             botonRechazar.Desactivar();
         }
+
+        foreach (Light luz in lucesParaApagar)
+        {
+            if (luz != null)
+            {
+                luz.enabled = false;
+            }
+        }
+
+        RenderSettings.ambientIntensity = 0f;
+        
     }
 }
