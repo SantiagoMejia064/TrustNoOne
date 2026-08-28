@@ -26,6 +26,9 @@ public class TaskManager : MonoBehaviour
     private int currentTaskIndex = -1;
     private bool currentTaskResolved;
 
+    public AudioSource audioSource; // Referencia al AudioSource para reproducir el sonido de la tarea
+    public Animator anim; // Referencia al Animator para controlar la animación de la tarea
+
     public void StartRun()
     {
         selectedTasks.Clear();
@@ -49,6 +52,9 @@ public class TaskManager : MonoBehaviour
             selectedTasks.Add(availableTasks[randomIndex]);
             availableTasks.RemoveAt(randomIndex);
         }
+
+        anim.Play("TeclasAnim"); // Reproduce la animación de la tarea
+        audioSource.Play();
 
         onRunStarted?.Invoke();
         ShowNextTask();
