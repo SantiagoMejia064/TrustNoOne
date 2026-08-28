@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -48,6 +49,9 @@ public class TaskManager : MonoBehaviour
     [Header("Tareas (en orden, lineal)")]
     [SerializeField] private List<TaskData> tasks = new List<TaskData>();
 
+    [Header("Interfaz")]
+    [SerializeField] private TextMeshProUGUI taskText;
+
     [Header("Condiciones de derrota")]
     [SerializeField] private int maxLegitimateRejected = 4;
     [SerializeField] private int maxSabotageAuthorized = 4;
@@ -63,10 +67,10 @@ public class TaskManager : MonoBehaviour
     private int currentTaskIndex = -1;
 
     // --- Checklist interno (el jugador no lo ve) ---
-    private int legitimateAuthorizedCount; // buenas hechas bien
-    private int legitimateRejectedCount;   // buenas rechazadas (cuenta para derrota)
-    private int sabotageAuthorizedCount;   // malas aceptadas (cuenta para derrota)
-    private int sabotageRejectedCount;     // malas rechazadas bien
+    [SerializeField] private int legitimateAuthorizedCount; // buenas hechas bien
+    [SerializeField] private int legitimateRejectedCount;   // buenas rechazadas (cuenta para derrota)
+    [SerializeField] private int sabotageAuthorizedCount;   // malas aceptadas (cuenta para derrota)
+    [SerializeField] private int sabotageRejectedCount;     // malas rechazadas bien
 
     private bool runFinished;
 
@@ -78,6 +82,11 @@ public class TaskManager : MonoBehaviour
     public int LegitimateRejectedCount => legitimateRejectedCount;
     public int SabotageAuthorizedCount => sabotageAuthorizedCount;
     public int SabotageRejectedCount => sabotageRejectedCount;
+
+    private void Start()
+    {
+        StartRun();
+    }
 
     public void StartRun()
     {
@@ -107,6 +116,7 @@ public class TaskManager : MonoBehaviour
             return;
         }
 
+        taskText.text = CurrentTask.Message;
         onNewTaskShown?.Invoke(CurrentTask);
     }
 
@@ -120,6 +130,7 @@ public class TaskManager : MonoBehaviour
         TaskData resolvedTask = CurrentTask;
 
         RegisterDecision(resolvedTask, decision);
+        Debug.Log("Tarea " + resolvedTask.Id + " - tipo: " + resolvedTask.Type + " - decision: " + decision);
         onTaskResolved?.Invoke(resolvedTask, decision);
 
         if (CheckDefeatConditions())
@@ -128,7 +139,7 @@ public class TaskManager : MonoBehaviour
         }
 
         // La tarea cambia a la siguiente inmediatamente despues de resolver,
-        // como pide el diseño (autorizar/rechazar -> consecuencia -> siguiente tarea).
+        // como pide el diseï¿½o (autorizar/rechazar -> consecuencia -> siguiente tarea).
         ShowNextTask();
     }
 

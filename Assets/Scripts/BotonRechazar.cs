@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BotonRechazar : MonoBehaviour, IInteractable
 {
+    [SerializeField] private TaskManager taskManager;
     [SerializeField] private string activeInteractionText = "E - Reject";
     [SerializeField] private string inactiveInteractionText = "You did your homework, so you can't back out now";
     [SerializeField] private string interactionText = "E - Reject";
@@ -32,6 +33,7 @@ public class BotonRechazar : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Interactuando con: " + interactableName);
+        taskManager?.ResolveCurrentTask(DecisionType.Reject);
     }
 
     public void Activar()

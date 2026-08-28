@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BotonAutorizar : MonoBehaviour, IInteractable
 {
+    [SerializeField] private TaskManager taskManager;
     [SerializeField] private string activeInteractionText = "E - authorize";
     [SerializeField] private string inactiveInteractionText = "Complete the task to obtain authorization";
     [SerializeField] private string interactionText = "Complete the task to obtain authorization";
@@ -32,6 +33,7 @@ public class BotonAutorizar : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Interactuando con: " + interactableName);
+        taskManager?.ResolveCurrentTask(DecisionType.Authorize);
     }
 
     public void Activar()
