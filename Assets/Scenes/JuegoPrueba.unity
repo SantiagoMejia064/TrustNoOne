@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 323420255}
   - component: {fileID: 323420257}
   - component: {fileID: 323420256}
+  - component: {fileID: 323420261}
   - component: {fileID: 323420260}
   - component: {fileID: 323420259}
   - component: {fileID: 323420258}
@@ -1003,7 +1004,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323420254}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd0bacec5350cf408f9ab6b3deab42f, type: 3}
   m_Name: 
@@ -1011,6 +1012,23 @@ MonoBehaviour:
   interactionText: E - Escuchar Telefono
   interactableName: Telefono
   canInteract: 1
+--- !u!114 &323420261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323420254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1d914e862bd5346ae534b3eece9558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComunicacionesDesconectarInteractable
+  interactionText: E - Desconectar comunicaciones
+  interactableName: Panel de comunicaciones
+  canInteract: 1
+  botonAutorizar: {fileID: 961356898}
+  botonRechazar: {fileID: 1537682755}
 --- !u!1001 &327527979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2644,6 +2662,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1339004506}
+    - targetCorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1339004498}
     - targetCorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
@@ -2775,7 +2796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &954254629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3020,11 +3041,158 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadf66ae5a475c842ae0769a8d172a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonAutorizar
+  taskManager: {fileID: 1721317070}
   activeInteractionText: E - authorize
   inactiveInteractionText: Complete the task to obtain authorization
   interactionText: Complete the task to obtain authorization
   interactableName: authorized button
   canInteract: 0
+--- !u!1 &1079816566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079816567}
+  - component: {fileID: 1079816568}
+  - component: {fileID: 1079816569}
+  m_Layer: 0
+  m_Name: Tarea4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079816567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079816566}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.99492, y: 4.78988, z: 64.71679}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1566636776}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079816568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079816566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf70e2b5e835db4fa8f6f98195eb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TareaAlarmaOxigenoSetup
+  taskId: Tarea4
+  taskManager: {fileID: 1721317070}
+  botonAutorizar: {fileID: 961356898}
+  alarmaInteractable: {fileID: 1339004506}
+--- !u!82 &1079816569
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079816566}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 805710a1d51e4a74985083ccb903e033, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.886
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1187097887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
@@ -3300,7 +3468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1269884793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3639,6 +3807,53 @@ MonoBehaviour:
   normalOpacity: 0.45
   interactableOpacity: 1
   transitionSpeed: 12
+--- !u!1 &1318189457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318189458}
+  - component: {fileID: 1318189460}
+  m_Layer: 0
+  m_Name: Tarea3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1318189458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318189457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.22, y: 2.163, z: 65.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1566636776}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318189460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318189457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a86bc185727bf4fa14aabe45d38c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConsecuenciaReiniciarComunicaciones
+  taskId: Tarea3
+  taskManager: {fileID: 1721317070}
+  botonAutorizar: {fileID: 961356898}
 --- !u!1 &1339004493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
@@ -3672,7 +3887,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339004493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd0bacec5350cf408f9ab6b3deab42f, type: 3}
   m_Name: 
@@ -3680,6 +3895,42 @@ MonoBehaviour:
   interactionText: E - Interactuar
   interactableName: Objeto interactivo
   canInteract: 1
+--- !u!4 &1339004503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 964518772204329300, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
+  m_PrefabInstance: {fileID: 762248849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1339004504 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7465796608779402060, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
+  m_PrefabInstance: {fileID: 762248849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1339004506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339004493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545e8875607cb284581587d3bd1bfb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlarmaOxigenoInteractable
+  interactionText: E - Desactivar alarma
+  interactableName: Alarma de oxigeno
+  canInteract: 1
+  botonAutorizar: {fileID: 961356898}
+  botonRechazar: {fileID: 1537682755}
+  alarmaRenderer: {fileID: 1339004504}
+  colorOscuro: {r: 0.3962264, g: 0, b: 0, a: 1}
+  colorClaro: {r: 1, g: 0, b: 0, a: 1}
+  colorPropertyName: _BaseColor
+  intervaloParpadeo: 0.4
+  alarmaAudio: {fileID: 1079816569}
+  visualBoton: {fileID: 1339004503}
+  escalaPulsado: 2.49
+  duracionPulsado: 0.15
 --- !u!1 &1348844592
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,6 +4405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc267a5e1b2b5044ea04f3b3cffe3268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonRechazar
+  taskManager: {fileID: 1721317070}
   activeInteractionText: E - Reject
   inactiveInteractionText: You did your homework, so you can't back out now
   interactionText: E - Reject
@@ -4189,6 +4441,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1804149888}
+  - {fileID: 1318189458}
+  - {fileID: 1079816567}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1576568450
@@ -5066,6 +5320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721317069}
   - component: {fileID: 1721317066}
+  - component: {fileID: 1721317070}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -5104,6 +5359,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721317070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721317065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed51f01511d632840925d8ecc7e2ca56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
+  tasks:
+  - id: Tarea1
+    message: Las luces presentan baja potencia. Aumente el generador al 120 %.
+    type: 1
+  - id: Tarea2
+    message: "Fallo detectado en la red principal. Active iluminaci\xF3n de emergencia"
+    type: 0
+  - id: Tarea3
+    message: "Interferencia cr\xEDtica detectada. Reinicie el sistema de comunicaciones."
+    type: 1
+  - id: Tarea4
+    message: "Sensor O\u2082 defectuoso. Desactive temporalmente la alarma."
+    type: 0
+  - id: Tarea5
+    message: Calidad del aire deteriorada. Active el filtro auxiliar.
+    type: 0
+  - id: Tarea6
+    message: "Circuito seguro perdido. Reinicie la l\xEDnea telef\xF3nica"
+    type: 0
+  - id: Tarea7
+    message: Frecuencia actual interceptada. Cambie el receptor al canal B.
+    type: 1
+  - id: Tarea8
+    message: "Actividad irregular detectada en el teletipo. Descon\xE9ctelo"
+    type: 1
+  taskText: {fileID: 68997771}
+  maxLegitimateRejected: 4
+  maxSabotageAuthorized: 4
+  victorySceneName: Victoria
+  gameOverSceneName: GameOver
+  onNewTaskShown:
+    m_PersistentCalls:
+      m_Calls: []
+  onTaskResolved:
+    m_PersistentCalls:
+      m_Calls: []
+  legitimateAuthorizedCount: 0
+  legitimateRejectedCount: 0
+  sabotageAuthorizedCount: 0
+  sabotageRejectedCount: 0
 --- !u!1001 &1743939082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6499,5 +6806,5 @@ SceneRoots:
   - {fileID: 2110746311}
   - {fileID: 1294191712}
   - {fileID: 1677386965}
-  - {fileID: 1721317069}
   - {fileID: 1566636776}
+  - {fileID: 1721317069}
