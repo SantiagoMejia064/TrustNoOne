@@ -19,7 +19,6 @@ public class FuseReplacementPanel : MonoBehaviour
     [Header("References")]
     [SerializeField] private Camera playerCamera;
     [SerializeField] private TaskManager taskManager;
-    [SerializeField] private FuseLightCircuitController lightCircuit;
 
     [Header("Task")]
     [SerializeField] private string fuseTaskId = "sustituir_fusible_luces";
@@ -245,7 +244,6 @@ public class FuseReplacementPanel : MonoBehaviour
         if (fuse == replacementFuse)
         {
             replacementInstalled = true;
-            lightCircuit?.SetCircuitHealthy();
             TryResolveFuseTask();
         }
     }
