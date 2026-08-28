@@ -12,6 +12,8 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
 
     private IInteractable currentInteractable;
+    private float interactionHoldTime;
+    private bool holdInteractionCompleted;
 
     private void Update()
     {
@@ -29,6 +31,7 @@ public class PlayerInteractor : MonoBehaviour
             return;
         }
 
+        ResetHoldInteraction();
         currentInteractable = detectedInteractable;
         RefreshInteractionUI();
     }
@@ -108,17 +111,56 @@ public class PlayerInteractor : MonoBehaviour
 
     private void HandleInteractionInput()
     {
-        if (!WasInteractionPressed())
+        if (Keyboard.current == null
+            || currentInteractable == null
+            || !currentInteractable.CanInteract())
+        {
+            ResetHoldInteraction();
+            return;
+        }
+
+        if (currentInteractable is IHoldInteractable holdInteractable)
+        {
+            HandleHoldInteraction(holdInteractable);
+            return;
+        }
+
+        ResetHoldInteraction();
+
+        if (WasInteractionPressed())
+        {
+            currentInteractable.Interact();
+        }
+    }
+
+    private void HandleHoldInteraction(IHoldInteractable holdInteractable)
+    {
+        if (!Keyboard.current.eKey.isPressed)
+        {
+            ResetHoldInteraction();
+            return;
+        }
+
+        if (holdInteractionCompleted)
         {
             return;
         }
 
-        if (currentInteractable == null || !currentInteractable.CanInteract())
+        interactionHoldTime += Time.deltaTime;
+
+        if (interactionHoldTime < Mathf.Max(0.1f, holdInteractable.GetHoldDuration()))
         {
             return;
         }
 
+        holdInteractionCompleted = true;
         currentInteractable.Interact();
+    }
+
+    private void ResetHoldInteraction()
+    {
+        interactionHoldTime = 0f;
+        holdInteractionCompleted = false;
     }
 
     private bool WasInteractionPressed()

@@ -9,6 +9,7 @@ public class BunkerStateManager : MonoBehaviour
     [SerializeField] private BunkerSystemState communicationsState = BunkerSystemState.Stable;
     [SerializeField] private bool exteriorContaminationActive;
     [SerializeField] private bool electricalOverloadActive;
+    [SerializeField] private bool ductContaminationActive;
 
     [Header("Eventos")]
     public UnityEvent onEnergyChanged = new UnityEvent();
@@ -17,6 +18,7 @@ public class BunkerStateManager : MonoBehaviour
     public UnityEvent onAnySystemCollapsed = new UnityEvent();
     public UnityEvent onExteriorContaminationChanged = new UnityEvent();
     public UnityEvent onElectricalOverloadChanged = new UnityEvent();
+    public UnityEvent onDuctContaminationChanged = new UnityEvent();
 
     public BunkerSystemState GetSystemState(BunkerSystemType systemType)
     {
@@ -117,6 +119,10 @@ public class BunkerStateManager : MonoBehaviour
                 return electricalOverloadActive;
             case TaskConditionType.ElectricalOverloadIsInactive:
                 return !electricalOverloadActive;
+            case TaskConditionType.DuctContaminationIsActive:
+                return ductContaminationActive;
+            case TaskConditionType.DuctContaminationIsInactive:
+                return !ductContaminationActive;
             default:
                 Debug.LogWarning("Condicion de tarea no reconocida: " + condition);
                 return false;
@@ -169,6 +175,24 @@ public class BunkerStateManager : MonoBehaviour
         SetElectricalOverloadActive(!electricalOverloadActive);
     }
 
+    public bool IsDuctContaminationActive()
+    {
+        return ductContaminationActive;
+    }
+
+    public void SetDuctContaminationActive(bool isActive)
+    {
+        if (ductContaminationActive == isActive)
+        {
+            return;
+        }
+
+        ductContaminationActive = isActive;
+        onDuctContaminationChanged?.Invoke();
+
+        Debug.Log("Contaminacion en conductos: " + (ductContaminationActive ? "ACTIVA" : "INACTIVA"));
+    }
+
     public bool IsCollapsed(BunkerSystemType systemType)
     {
         return GetSystemState(systemType) == BunkerSystemState.Collapse;
@@ -181,6 +205,7 @@ public class BunkerStateManager : MonoBehaviour
         SetSystemState(BunkerSystemType.Communications, BunkerSystemState.Stable);
         SetExteriorContaminationActive(false);
         SetElectricalOverloadActive(false);
+        SetDuctContaminationActive(false);
     }
 
     private bool IsLowOrWorse(BunkerSystemState state)

@@ -43,6 +43,12 @@ public class TaskEffectsDebugLogger : MonoBehaviour
                 continue;
             }
 
+            if (effect == TaskEffectType.TriggerOxygenDistress)
+            {
+                Debug.Log("Falta de oxigeno: respiracion fuerte, vineta y perdida parcial de claridad visual.");
+                continue;
+            }
+
             Debug.Log("Efecto de tarea activado: " + effect);
         }
     }

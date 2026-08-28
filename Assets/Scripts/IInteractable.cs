@@ -4,3 +4,8 @@ public interface IInteractable
     bool CanInteract();
     void Interact();
 }
+
+public interface IHoldInteractable
+{
+    float GetHoldDuration();
+}

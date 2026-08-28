@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c96b82c6f8639b4c8fc23c12a8e30f5, type: 3}
+  m_Name: Task_ActivarIluminacionEmergencia
+  m_EditorClassIdentifier: Assembly-CSharp::TaskData
+  taskId: activar_iluminacion_emergencia
+  title: "Activar iluminaci\xF3n de emergencia"
+  message: "Fallo detectado en la red principal. Active iluminaci\xF3n de emergencia."
+  howToVerify: "El voltaje est\xE1 bajando y algunas luces presentan parpadeos."
+  difficulty: 0
+  canAppearRandomly: 1
+  truthCondition: 0
+  decisionWhenConditionIsTrue: 0
+  decisionWhenConditionIsFalse: 0
+  successAffectedSystem: 0
+  successSystemDelta: 1
+  failureAffectedSystem: 0
+  failureSystemDelta: -1
+  successEffects: 11000000
+  failureEffects: 12000000

@@ -16,5 +16,9 @@ public enum TaskEffectType
     DisableGasMask,
     TriggerAlarm,
     StopAlarm,
-    DisableRandomInformationDevice
+    DisableRandomInformationDevice,
+    ActivateEmergencyLighting,
+    ProgressiveLightFailure,
+    TriggerOxygenDistress,
+    DisableCommunicationsTemporarily
 }

@@ -8,7 +8,8 @@ public class BunkerEventRandomizer : MonoBehaviour
     private enum RandomEventType
     {
         ExteriorContamination,
-        ElectricalOverload
+        ElectricalOverload,
+        DuctContamination
     }
 
     [Serializable]
@@ -68,6 +69,8 @@ public class BunkerEventRandomizer : MonoBehaviour
                 return bunkerStateManager.IsExteriorContaminationActive();
             case RandomEventType.ElectricalOverload:
                 return bunkerStateManager.IsElectricalOverloadActive();
+            case RandomEventType.DuctContamination:
+                return bunkerStateManager.IsDuctContaminationActive();
             default:
                 return false;
         }
@@ -88,6 +91,9 @@ public class BunkerEventRandomizer : MonoBehaviour
                 break;
             case RandomEventType.ElectricalOverload:
                 bunkerStateManager.SetElectricalOverloadActive(isActive);
+                break;
+            case RandomEventType.DuctContamination:
+                bunkerStateManager.SetDuctContaminationActive(isActive);
                 break;
         }
     }
