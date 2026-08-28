@@ -9,6 +9,7 @@ public class BunkerStateManager : MonoBehaviour
     [SerializeField] private BunkerSystemState communicationsState = BunkerSystemState.Stable;
     [SerializeField] private bool exteriorContaminationActive;
     [SerializeField] private bool electricalOverloadActive;
+    [SerializeField] private bool auxiliaryGeneratorAvailable = true;
 
     [Header("Eventos")]
     public UnityEvent onEnergyChanged = new UnityEvent();
@@ -17,6 +18,7 @@ public class BunkerStateManager : MonoBehaviour
     public UnityEvent onAnySystemCollapsed = new UnityEvent();
     public UnityEvent onExteriorContaminationChanged = new UnityEvent();
     public UnityEvent onElectricalOverloadChanged = new UnityEvent();
+    public UnityEvent onAuxiliaryGeneratorAvailabilityChanged = new UnityEvent();
 
     public BunkerSystemState GetSystemState(BunkerSystemType systemType)
     {
@@ -117,6 +119,8 @@ public class BunkerStateManager : MonoBehaviour
                 return electricalOverloadActive;
             case TaskConditionType.ElectricalOverloadIsInactive:
                 return !electricalOverloadActive;
+            case TaskConditionType.AuxiliaryGeneratorIsAvailable:
+                return auxiliaryGeneratorAvailable;
             default:
                 Debug.LogWarning("Condicion de tarea no reconocida: " + condition);
                 return false;
@@ -149,6 +153,29 @@ public class BunkerStateManager : MonoBehaviour
     public bool IsElectricalOverloadActive()
     {
         return electricalOverloadActive;
+    }
+
+    public bool IsAuxiliaryGeneratorAvailable()
+    {
+        return auxiliaryGeneratorAvailable;
+    }
+
+    public void SetAuxiliaryGeneratorAvailable(bool isAvailable)
+    {
+        if (auxiliaryGeneratorAvailable == isAvailable)
+        {
+            return;
+        }
+
+        auxiliaryGeneratorAvailable = isAvailable;
+        onAuxiliaryGeneratorAvailabilityChanged?.Invoke();
+
+        Debug.Log("Generador auxiliar: " + (auxiliaryGeneratorAvailable ? "DISPONIBLE" : "AVERIADO/DESCARGADO"));
+    }
+
+    public void ToggleAuxiliaryGeneratorAvailable()
+    {
+        SetAuxiliaryGeneratorAvailable(!auxiliaryGeneratorAvailable);
     }
 
     public void SetElectricalOverloadActive(bool isActive)
