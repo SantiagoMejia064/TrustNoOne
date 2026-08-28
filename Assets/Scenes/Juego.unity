@@ -356,11 +356,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 35526806}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &35526808 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 35526806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &35635722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1186,11 +1181,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 145220522}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &145220524 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 145220522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &150263211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,11 +1400,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 164596236}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &164596238 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 164596236}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &171833256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1412,6 @@ GameObject:
   - component: {fileID: 171833261}
   - component: {fileID: 171833260}
   - component: {fileID: 171833259}
-  - component: {fileID: 171833258}
   m_Layer: 3
   m_Name: Power Teletipo
   m_TagString: Untagged
@@ -1450,24 +1434,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1903045393}
   m_LocalEulerAnglesHint: {x: 0, y: 21.117, z: 0}
---- !u!114 &171833258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171833256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522456c83e401284f94382fb745d4dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainDevicesPowerButton
-  deviceName: Teletipo
-  taskManager: {fileID: 1949104573}
-  overloadTaskId: sobrecarga_electrica_entrante
-  isConnected: 1
-  disconnectText: E - DESCONECTAR
-  connectText: E - CONECTAR
 --- !u!65 &171833259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1558,7 +1524,6 @@ GameObject:
   - component: {fileID: 173807915}
   - component: {fileID: 173807914}
   - component: {fileID: 173807913}
-  - component: {fileID: 173807912}
   m_Layer: 5
   m_Name: Canvas Teleype
   m_TagString: Untagged
@@ -1586,28 +1551,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0657, y: 0.0215}
   m_SizeDelta: {x: 583.6804, y: 1759.2925}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &173807912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173807910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f2fa1b76433794a9eea2080e605765, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeletypeController
-  titleText: {fileID: 673992612}
-  messageText: {fileID: 2145512378}
-  verifyText: {fileID: 504456654}
-  isPowered: 1
-  poweredVisuals: {fileID: 0}
-  unpoweredVisuals: {fileID: 0}
-  powerStateText: {fileID: 0}
-  poweredStateMessage: TELETIPO OPERATIVO
-  unpoweredStateMessage: TELETIPO SIN CORRIENTE
-  rebootingStateMessage: TELETIPO REINICIANDO
 --- !u!114 &173807913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3056,11 +2999,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 344394592}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &344394594 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 344394592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &345806246
 GameObject:
   m_ObjectHideFlags: 0
@@ -3310,24 +3248,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349939422}
   m_CullTransparentMesh: 1
---- !u!114 &351064086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023277337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0011fe1213b6e3543b8fa51344f2192b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VentilationController
-  taskManager: {fileID: 1949104573}
-  ventilationTaskId: detener_ventilacion_contaminada
-  ventilationRunning: 1
-  requiredStopDuration: 5
-  stopText: E - DETENER VENTILACION
-  startText: E - ACTIVAR VENTILACION
 --- !u!65 &351064087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3449,11 +3369,6 @@ PrefabInstance:
 --- !u!4 &417511455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 417511454}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &417511456 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 417511454}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &419084133
@@ -4325,11 +4240,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 583561114}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &583561116 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 583561114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &596252168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4398,11 +4308,6 @@ PrefabInstance:
 --- !u!4 &596252169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 596252168}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &596252170 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 596252168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &626809850
@@ -4789,11 +4694,6 @@ PrefabInstance:
 --- !u!4 &672184707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 672184706}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &672184708 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 672184706}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &673992610
@@ -5606,7 +5506,6 @@ GameObject:
   - component: {fileID: 806063702}
   - component: {fileID: 806063701}
   - component: {fileID: 806063700}
-  - component: {fileID: 806063699}
   m_Layer: 3
   m_Name: Power Generador
   m_TagString: Untagged
@@ -5629,32 +5528,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1903045393}
   m_LocalEulerAnglesHint: {x: 0, y: -2.825, z: -3.389}
---- !u!114 &806063699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806063697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 889cb09061aed1445a67c73a850a490c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeneratorPowerController
-  taskManager: {fileID: 1949104573}
-  generatorTaskId: aumentar_potencia_generador
-  generatorActive: 1
-  currentPowerPercent: 100
-  interactionText: E - AUMENTAR GENERADOR AL 120%
-  lightsToBurn:
-  - {fileID: 1237691297}
-  - {fileID: 672184708}
-  - {fileID: 1366170488}
-  - {fileID: 1018157550}
-  - {fileID: 145220524}
-  - {fileID: 1426661057}
-  failureFogDensity: 0.2
-  failureAmbientIntensity: 0
 --- !u!65 &806063700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5821,11 +5694,6 @@ PrefabInstance:
 --- !u!4 &810190980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 810190979}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &810190981 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 810190979}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &852347374
@@ -6861,11 +6729,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 1018157548}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &1018157550 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 1018157548}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1115909262
 GameObject:
   m_ObjectHideFlags: 0
@@ -7166,11 +7029,6 @@ PrefabInstance:
 --- !u!4 &1237691296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 1237691295}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1237691297 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 1237691295}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1255062891 stripped
@@ -7535,11 +7393,6 @@ PrefabInstance:
 --- !u!4 &1366170487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 1366170486}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1366170488 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 1366170486}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1375657911
@@ -7930,12 +7783,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1416105721}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1416105723}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1416105722}
     - targetCorrespondingSourceObject: {fileID: -8927736490855866747, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1213346905}
@@ -7986,38 +7833,6 @@ MonoBehaviour:
   interactionText: E - Interactuar
   interactableName: Objeto interactivo
   canInteract: 1
---- !u!114 &1416105722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416105718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46a56c68615fea49b198de0a3523f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TelefonoSwitchJLV
-  taskManager: {fileID: 1949104573}
-  telefono: {fileID: 1416105723}
-  targetTaskId: reactivar_linea_telefonica
-  interactionText: E - Reiniciar linea telefonica
-  desbloqueado: 0
-  reiniciado: 0
---- !u!114 &1416105723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416105718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23f967edd3e54ab40990db855321235d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TelefonoJLV
-  audioEstatica: {fileID: 150263213}
-  lineaActiva: 0
 --- !u!1001 &1418933056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8280,11 +8095,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
---- !u!108 &1426661057 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 1426661056}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1426661058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
@@ -8340,7 +8150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   playerCamera: {fileID: 2056298495}
-  interactionUI: {fileID: 0}
+  interactionUI: {fileID: 1294191713}
   interactionDistance: 10
   interactableLayer:
     serializedVersion: 2
@@ -8747,11 +8557,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 1489325287}
   m_PrefabAsset: {fileID: 0}
---- !u!108 &1489325289 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 1489325287}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1499330024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148412142962102433, guid: 57970c6bb711ec24b8d98424b1806f3b, type: 3}
@@ -8857,11 +8662,6 @@ PrefabInstance:
 --- !u!4 &1522563604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 1522563603}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1522563605 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 1522563603}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1559464741 stripped
@@ -9664,7 +9464,6 @@ GameObject:
   - component: {fileID: 1649175327}
   - component: {fileID: 1649175326}
   - component: {fileID: 1649175325}
-  - component: {fileID: 1649175324}
   m_Layer: 3
   m_Name: RechazaButton
   m_TagString: Untagged
@@ -9687,22 +9486,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1903045393}
   m_LocalEulerAnglesHint: {x: 0, y: 21.117, z: 0}
---- !u!114 &1649175324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649175322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffcbabbfc475fe4b83efa3e0c4a0c90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DecisionButton
-  decisionType: 1
-  taskManager: {fileID: 1949104573}
-  authorizeText: E - AUTORIZAR
-  rejectText: E - RECHAZAR
 --- !u!65 &1649175325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10004,7 +9787,6 @@ GameObject:
   - component: {fileID: 1713932733}
   - component: {fileID: 1713932732}
   - component: {fileID: 1713932731}
-  - component: {fileID: 1713932730}
   m_Layer: 3
   m_Name: Power Telefono
   m_TagString: Untagged
@@ -10027,24 +9809,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1903045393}
   m_LocalEulerAnglesHint: {x: 0, y: 21.117, z: 0}
---- !u!114 &1713932730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713932728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522456c83e401284f94382fb745d4dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainDevicesPowerButton
-  deviceName: Telefono
-  taskManager: {fileID: 1949104573}
-  overloadTaskId: sobrecarga_electrica_entrante
-  isConnected: 1
-  disconnectText: E - DESCONECTAR
-  connectText: E - CONECTAR
 --- !u!65 &1713932731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10915,7 +10679,6 @@ GameObject:
   - component: {fileID: 1908314107}
   - component: {fileID: 1908314106}
   - component: {fileID: 1908314105}
-  - component: {fileID: 1908314104}
   m_Layer: 3
   m_Name: AturizaButton
   m_TagString: Untagged
@@ -10938,22 +10701,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1903045393}
   m_LocalEulerAnglesHint: {x: 0, y: 21.117, z: 0}
---- !u!114 &1908314104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908314102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffcbabbfc475fe4b83efa3e0c4a0c90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DecisionButton
-  decisionType: 0
-  taskManager: {fileID: 1949104573}
-  authorizeText: E - AUTORIZAR
-  rejectText: E - RECHAZAR
 --- !u!65 &1908314105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11164,12 +10911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1949104579}
-  - component: {fileID: 1949104574}
-  - component: {fileID: 1949104573}
   - component: {fileID: 1949104578}
-  - component: {fileID: 1949104577}
-  - component: {fileID: 1949104576}
-  - component: {fileID: 1949104575}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -11177,136 +10919,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1949104573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949104572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed51f01511d632840925d8ecc7e2ca56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
-  allTasks:
-  - {fileID: 11400000, guid: b1f46c1f08fbf9c48aa80dfb4e7f7474, type: 2}
-  - {fileID: 11400000, guid: a3d5ec0692ae6174fb34d092f3a7624d, type: 2}
-  - {fileID: 11400000, guid: 7763b24a80aede040bb65ef52f60c683, type: 2}
-  - {fileID: 11400000, guid: 295fcb65f7541484285a301f24669e42, type: 2}
-  - {fileID: 11400000, guid: bcfcdceea5c1ed04b9f64a1bf9f4ebba, type: 2}
-  - {fileID: 11400000, guid: 894effb5b107d2c499e15f693877ca4c, type: 2}
-  minTasksPerRun: 6
-  maxTasksPerRun: 6
-  bunkerStateManager: {fileID: 1949104574}
-  onRunStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  onTaskShown:
-    m_PersistentCalls:
-      m_Calls: []
-  onCorrectDecision:
-    m_PersistentCalls:
-      m_Calls: []
-  onWrongDecision:
-    m_PersistentCalls:
-      m_Calls: []
-  onRunCompleted:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1949104574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949104572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ece11e52815d3a4f9b9c6dfe7887f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BunkerStateManager
-  energyState: 0
-  oxygenState: 0
-  communicationsState: 0
-  exteriorContaminationActive: 0
-  electricalOverloadActive: 0
-  ductContaminationActive: 0
-  auxiliaryGeneratorAvailable: 1
-  onEnergyChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onOxygenChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onCommunicationsChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onAnySystemCollapsed:
-    m_PersistentCalls:
-      m_Calls: []
-  onExteriorContaminationChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onElectricalOverloadChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDuctContaminationChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onAuxiliaryGeneratorAvailabilityChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1949104575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949104572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c24c576341722a49a31e30e77617ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BunkerEventRandomizer
-  bunkerStateManager: {fileID: 1949104574}
-  startAutomatically: 1
-  randomEvents:
-  - eventType: 0
-    enabled: 1
-    activationIntervalRange: {x: 20, y: 45}
-    activeDurationRange: {x: 8, y: 15}
-  - eventType: 1
-    enabled: 1
-    activationIntervalRange: {x: 20, y: 25}
-    activeDurationRange: {x: 8, y: 15}
---- !u!114 &1949104576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949104572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c58a31fa79d1854888207d96ec4fef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskEffectsDebugLogger
-  taskManager: {fileID: 1949104573}
---- !u!114 &1949104577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949104572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3136f909d0dc6664284005d340ca7f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskDisplayBinder
-  taskManager: {fileID: 1949104573}
-  teletypeController: {fileID: 173807912}
 --- !u!114 &1949104578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11319,7 +10931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a0c6602670cc04da9e0582a552905d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskDebugInput
-  taskManager: {fileID: 1949104573}
   startRunKey: 114
   nextTaskKey: 110
   authorizeKey: 49
@@ -12172,38 +11783,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 351064087}
-    - targetCorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 351064086}
-    - targetCorrespondingSourceObject: {fileID: 5913989551430976049, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2023277342}
     - targetCorrespondingSourceObject: {fileID: 5913989551430976049, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2023277341}
     - targetCorrespondingSourceObject: {fileID: -8713574303930751265, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2023277340}
-    - targetCorrespondingSourceObject: {fileID: -8713574303930751265, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2023277339}
-    - targetCorrespondingSourceObject: {fileID: -1018664272722485354, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2023277338}
   m_SourcePrefab: {fileID: 100100000, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
 --- !u!4 &2023277332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
-  m_PrefabInstance: {fileID: 2023277331}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2023277333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1018664272722485354, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
-  m_PrefabInstance: {fileID: 2023277331}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &2023277334 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6317578925029434746, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
   m_PrefabInstance: {fileID: 2023277331}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2023277335 stripped
@@ -12221,23 +11810,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3266618362427837072, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
   m_PrefabInstance: {fileID: 2023277331}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2023277338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023277333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f45c79868ca89e4481115f255a41152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExteriorContaminationIndicator
-  bunkerStateManager: {fileID: 1949104574}
-  targetRenderer: {fileID: 2023277334}
-  inactiveColor: {r: 0.3882353, g: 0.27058825, b: 0.105882354, a: 1}
-  alertColor: {r: 1, g: 0, b: 0, a: 1}
-  blinkSpeed: 4
 --- !u!65 &2023277339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12259,43 +11831,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.015522952, y: 0.015522955, z: 0.0097809825}
   m_Center: {x: -0.0000009539071, y: -0.0000000081490725, z: 0.007989597}
---- !u!114 &2023277340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023277335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc8cd0c002959e49b5d907ec03e9e98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmergencyLightingController
-  taskManager: {fileID: 1949104573}
-  emergencyTaskId: activar_iluminacion_emergencia
-  interactionText: E - ACTIVAR ILUMINACION DE EMERGENCIA
-  mainLights:
-  - {fileID: 344394594}
-  - {fileID: 596252170}
-  - {fileID: 35526808}
-  - {fileID: 1426661057}
-  - {fileID: 145220524}
-  - {fileID: 1366170488}
-  - {fileID: 2090820048}
-  - {fileID: 417511456}
-  - {fileID: 1522563605}
-  - {fileID: 672184708}
-  - {fileID: 672184708}
-  - {fileID: 1237691297}
-  - {fileID: 1018157550}
-  emergencyLights:
-  - {fileID: 1489325289}
-  - {fileID: 583561116}
-  - {fileID: 164596238}
-  - {fileID: 810190981}
-  warningBlinkInterval: 0.35
-  progressiveShutdownInterval: 1
-  failureAmbientLightMultiplier: 0.5
 --- !u!65 &2023277341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12317,32 +11852,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.015522952, y: 0.015522955, z: 0.0097809825}
   m_Center: {x: -0.00000047707, y: -0.0000000081490725, z: 0.007989597}
---- !u!114 &2023277342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023277336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997568d983dff7644bfd9c3534b5b529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CommunicationsRestartController
-  taskManager: {fileID: 1949104573}
-  restartTaskId: reiniciar_comunicaciones
-  interactionText: E - REINICIAR COMUNICACIONES
-  holdDuration: 3
-  disabledDuration: 90
-  radioControls: []
-  phoneControls: []
-  radioInteractionColliders:
-  - {fileID: 664888931}
-  phoneInteractionColliders:
-  - {fileID: 1416105720}
-  radioStatusText: {fileID: 0}
-  phoneStatusText: {fileID: 0}
-  disabledMessage: SISTEMA DESACTIVADO
 --- !u!1 &2025170837
 GameObject:
   m_ObjectHideFlags: 0
@@ -12524,7 +12033,6 @@ GameObject:
   - component: {fileID: 2068921868}
   - component: {fileID: 2068921867}
   - component: {fileID: 2068921866}
-  - component: {fileID: 2068921865}
   m_Layer: 3
   m_Name: ALERT
   m_TagString: Untagged
@@ -12547,23 +12055,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1115909263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2068921865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068921863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f45c79868ca89e4481115f255a41152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExteriorContaminationIndicator
-  bunkerStateManager: {fileID: 1949104574}
-  targetRenderer: {fileID: 2068921868}
-  inactiveColor: {r: 1, g: 1, b: 1, a: 1}
-  alertColor: {r: 1, g: 0, b: 0, a: 1}
-  blinkSpeed: 4
 --- !u!114 &2068921866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12833,11 +12324,6 @@ PrefabInstance:
 --- !u!4 &2090820047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
-  m_PrefabInstance: {fileID: 2090820046}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &2090820048 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
   m_PrefabInstance: {fileID: 2090820046}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2135529545

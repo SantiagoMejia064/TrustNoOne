@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class TaskDebugInput : MonoBehaviour
 {
-    [SerializeField] private TaskManager taskManager;
+    //[SerializeField] private TaskManager taskManager;
     [SerializeField] private KeyCode startRunKey = KeyCode.R;
     [SerializeField] private KeyCode nextTaskKey = KeyCode.N;
     [SerializeField] private KeyCode authorizeKey = KeyCode.Alpha1;
@@ -11,7 +11,7 @@ public class TaskDebugInput : MonoBehaviour
 
     private void Update()
     {
-        if (taskManager == null)
+        /*if (taskManager == null)
         {
             return;
         }
@@ -34,7 +34,7 @@ public class TaskDebugInput : MonoBehaviour
         if (WasPressed(rejectKey))
         {
             taskManager.ResolveCurrentTask(DecisionType.Reject);
-        }
+        }*/
     }
 
     private bool WasPressed(KeyCode keyCode)
