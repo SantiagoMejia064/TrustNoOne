@@ -8,12 +8,13 @@ public class TelefonoRojo : MonoBehaviour
 
     private NIS inputActions;
 
+    private TaskManager taskManager;
+
     private void Awake()
     {
         inputActions = new NIS();
     }
 
-    
 
     private void OnEnable()
     {
@@ -24,7 +25,7 @@ public class TelefonoRojo : MonoBehaviour
 
     private void OnDisable()
     {
-        //inputActions.Player.Interactuar.started -= AbrirTelefono;
+        inputActions.Player.Interactuar.started -= AbrirTelefono;
         inputActions.Player.Interactuar.canceled -= CerrarTelefono;
         inputActions.Disable();
     }
@@ -32,14 +33,34 @@ public class TelefonoRojo : MonoBehaviour
     private void AbrirTelefono(InputAction.CallbackContext context)
     {
         anim.SetBool("isUp", true);
-        audioEstatica.Play();
     }
+
 
     private void CerrarTelefono(InputAction.CallbackContext context)
     {
         anim.SetBool("isUp", false);
-        audioEstatica.Stop();
     }
 
+    private void Update()
+    {
+        if (taskManager == null || audioEstatica == null)
+        {
+            return;
+        }
+
+        TaskData currentTask = taskManager.CurrentTask;
+
+        if (currentTask != null && currentTask.Type == TaskType.Legitimate)
+        {
+            if (!audioEstatica.isPlaying)
+            {
+                audioEstatica.Play();
+            }
+        }
+        else if (audioEstatica.isPlaying)
+        {
+            audioEstatica.Stop();
+        }
+    }
     
 }

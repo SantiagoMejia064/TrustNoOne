@@ -7783,6 +7783,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1416105721}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1416105722}
     - targetCorrespondingSourceObject: {fileID: -8927736490855866747, guid: e98870017c1bbc6489ad5233dafcc2a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1213346905}
@@ -7825,7 +7828,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416105718}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd0bacec5350cf408f9ab6b3deab42f, type: 3}
   m_Name: 
@@ -7833,6 +7836,20 @@ MonoBehaviour:
   interactionText: E - Interactuar
   interactableName: Objeto interactivo
   canInteract: 1
+--- !u!114 &1416105722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416105718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604eeedb059876e4dba6ff1cf899d6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TelefonoRojo
+  audioEstatica: {fileID: 150263213}
+  anim: {fileID: 1213346905}
 --- !u!1001 &1418933056
 PrefabInstance:
   m_ObjectHideFlags: 0
