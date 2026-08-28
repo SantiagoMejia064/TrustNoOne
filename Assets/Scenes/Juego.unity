@@ -7850,6 +7850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TelefonoRojo
   audioEstatica: {fileID: 150263213}
   anim: {fileID: 1213346905}
+  taskManager: {fileID: 1949104580}
 --- !u!1001 &1418933056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9481,6 +9482,7 @@ GameObject:
   - component: {fileID: 1649175327}
   - component: {fileID: 1649175326}
   - component: {fileID: 1649175325}
+  - component: {fileID: 1649175328}
   m_Layer: 3
   m_Name: RechazaButton
   m_TagString: Untagged
@@ -9581,6 +9583,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649175322}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1649175328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649175322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc267a5e1b2b5044ea04f3b3cffe3268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BotonRechazar
+  taskManager: {fileID: 1949104580}
+  manualTaskId: kkk
+  activeInteractionText: E - Reject
+  inactiveInteractionText: You did your homework, so you can't back out now
+  interactionText: E - Reject
+  interactableName: Rejected button
+  canInteract: 1
+  filtroAuxiliar: {fileID: 2023277347}
 --- !u!1 &1652043484
 GameObject:
   m_ObjectHideFlags: 0
@@ -10696,6 +10718,7 @@ GameObject:
   - component: {fileID: 1908314107}
   - component: {fileID: 1908314106}
   - component: {fileID: 1908314105}
+  - component: {fileID: 1908314108}
   m_Layer: 3
   m_Name: AturizaButton
   m_TagString: Untagged
@@ -10796,6 +10819,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908314102}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1908314108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908314102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadf66ae5a475c842ae0769a8d172a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BotonAutorizar
+  taskManager: {fileID: 0}
+  activeInteractionText: E - authorize
+  inactiveInteractionText: Complete the task to obtain authorization
+  interactionText: Complete the task to obtain authorization
+  interactableName: authorized button
+  canInteract: 0
 --- !u!1 &1911870840
 GameObject:
   m_ObjectHideFlags: 0
@@ -10929,6 +10970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1949104579}
   - component: {fileID: 1949104578}
+  - component: {fileID: 1949104580}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -10967,6 +11009,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949104580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949104572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed51f01511d632840925d8ecc7e2ca56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
+  tasks:
+  - id: kkk
+    message: popo
+    type: 0
+  - id: lklklk
+    message: jkkkjk
+    type: 1
+  taskText: {fileID: 2145512378}
+  maxLegitimateRejected: 4
+  maxSabotageAuthorized: 4
+  victorySceneName: Victoria
+  gameOverSceneName: GameOver
+  onNewTaskShown:
+    m_PersistentCalls:
+      m_Calls: []
+  onTaskResolved:
+    m_PersistentCalls:
+      m_Calls: []
+  legitimateAuthorizedCount: 0
+  legitimateRejectedCount: 0
+  sabotageAuthorizedCount: 0
+  sabotageRejectedCount: 0
 --- !u!1 &1962596126
 GameObject:
   m_ObjectHideFlags: 0
@@ -11803,6 +11879,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5913989551430976049, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2023277341}
+    - targetCorrespondingSourceObject: {fileID: 5913989551430976049, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2023277347}
     - targetCorrespondingSourceObject: {fileID: -8713574303930751265, guid: d321f7bef55d8d14783749dcedbc2d23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2023277339}
@@ -11869,6 +11948,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.015522952, y: 0.015522955, z: 0.0097809825}
   m_Center: {x: -0.00000047707, y: -0.0000000081490725, z: 0.007989597}
+--- !u!114 &2023277347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023277336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fa50b75f1c87d45907b01b624630d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FiltroAuxiliar
+  interactionText: E - Auxiliar filter
+  interactableName: Generator button
+  canInteract: 1
+  botonAutorizar: {fileID: 1908314108}
+  botonRechazar: {fileID: 1649175328}
+  Ox1: {fileID: 436110163}
+  Ox2: {fileID: 1354537679}
 --- !u!1 &2025170837
 GameObject:
   m_ObjectHideFlags: 0

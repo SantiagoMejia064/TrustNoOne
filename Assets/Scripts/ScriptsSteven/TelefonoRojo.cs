@@ -8,7 +8,7 @@ public class TelefonoRojo : MonoBehaviour
 
     private NIS inputActions;
 
-    private TaskManager taskManager;
+    [SerializeField] private TaskManager taskManager;
 
     private void Awake()
     {
@@ -50,7 +50,7 @@ public class TelefonoRojo : MonoBehaviour
 
         TaskData currentTask = taskManager.CurrentTask;
 
-        if (currentTask != null && currentTask.Type == TaskType.Legitimate)
+        if (currentTask != null && currentTask.Type == TaskType.Legitimate && anim.GetBool("isUp"))
         {
             if (!audioEstatica.isPlaying)
             {
