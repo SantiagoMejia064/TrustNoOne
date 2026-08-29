@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FiltroAuxiliar : MonoBehaviour
+public class FiltroAuxiliar : MonoBehaviour, IInteractable
 {
     [SerializeField] private string interactionText = "E - Auxiliar filter";
     [SerializeField] private string interactableName = "Generator button";
