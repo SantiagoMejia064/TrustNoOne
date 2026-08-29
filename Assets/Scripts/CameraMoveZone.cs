@@ -11,9 +11,14 @@ public class CameraMoveZone : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private bool canUse = true;
+    [SerializeField] private bool disableAfterUse;
     [SerializeField] private string interactionText = "Left click - Move";
     public string InteractionText => interactionText;
     [SerializeField] private float customMoveDuration = -1f;
+
+    [SerializeField] private GameObject[] moveZones;
+    private Collider[] cachedColliders;
+    private Renderer[] cachedRenderers;
 
     public Transform DestinationPoint => destinationPoint;
     public Transform LookAtTarget => lookAtTarget;
@@ -27,6 +32,88 @@ public class CameraMoveZone : MonoBehaviour
     public void SetCanUse(bool value)
     {
         canUse = value;
+    }
+
+    private void Awake()
+    {
+        cachedColliders = GetComponentsInChildren<Collider>(true);
+        cachedRenderers = GetComponentsInChildren<Renderer>(true);
+        ApplyUsableState(canUse);
+    }
+
+    public void ActivateZone()
+    {
+        canUse = true;
+        ApplyUsableState(true);
+        gameObject.SetActive(true);
+    }
+
+    public void OnPlayerArrived()
+    {
+        canUse = false;
+        ApplyUsableState(false);
+
+        if (moveZones != null)
+        {
+            foreach (GameObject moveZone in moveZones)
+            {
+                if (moveZone == null)
+                {
+                    continue;
+                }
+
+                moveZone.SetActive(true);
+
+                CameraMoveZone nextZone = moveZone.GetComponent<CameraMoveZone>();
+                if (nextZone == null)
+                {
+                    nextZone = moveZone.GetComponentInChildren<CameraMoveZone>(true);
+                }
+
+                if (nextZone != null)
+                {
+                    nextZone.ActivateZone();
+                }
+            }
+        }
+
+        if (disableAfterUse)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void ApplyUsableState(bool isUsable)
+    {
+        if (cachedColliders == null || cachedColliders.Length == 0)
+        {
+            cachedColliders = GetComponentsInChildren<Collider>(true);
+        }
+
+        if (cachedRenderers == null || cachedRenderers.Length == 0)
+        {
+            cachedRenderers = GetComponentsInChildren<Renderer>(true);
+        }
+
+        foreach (Collider zoneCollider in cachedColliders)
+        {
+            if (zoneCollider == null)
+            {
+                continue;
+            }
+
+            zoneCollider.enabled = isUsable;
+        }
+
+        foreach (Renderer zoneRenderer in cachedRenderers)
+        {
+            if (zoneRenderer == null)
+            {
+                continue;
+            }
+
+            zoneRenderer.enabled = isUsable;
+        }
     }
 
     private void OnDrawGizmosSelected()

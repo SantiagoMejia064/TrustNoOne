@@ -254,6 +254,14 @@ public class Movimiento : MonoBehaviour
             SetLookAngles(targetYaw, targetPitch);
         }
 
+        zone.OnPlayerArrived();
+        currentHoveredZone = null;
+
+        if (interactionUI != null)
+        {
+            interactionUI.HideInteraction();
+        }
+
         SetLookBlocked(false);
         zoneMoveRoutine = null;
     }
