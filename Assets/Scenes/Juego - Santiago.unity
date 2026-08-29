@@ -1103,6 +1103,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 506080131}
     m_Modifications:
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_Range
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Color.b
       value: 0.02298672
       objectReference: {fileID: 0}
@@ -1116,11 +1120,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Intensity
-      value: 70
+      value: 500.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3494576831019906739, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_LocalScale.x
@@ -2085,6 +2093,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 506080131}
     m_Modifications:
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_Range
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Color.b
       value: 0.02298672
       objectReference: {fileID: 0}
@@ -2098,11 +2110,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Intensity
-      value: 70
+      value: 500.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3494576831019906739, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_LocalScale.x
@@ -2452,6 +2468,7 @@ MonoBehaviour:
   canInteract: 1
   botonAutorizar: {fileID: 961356898}
   botonRechazar: {fileID: 1537682755}
+  lucesParaApagar: []
 --- !u!1001 &702779049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3198,6 +3215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonAutorizar
   taskManager: {fileID: 1721317070}
+  botonRechazar: {fileID: 1537682755}
   activeInteractionText: E - authorize
   inactiveInteractionText: Complete the task to obtain authorization
   interactionText: Complete the task to obtain authorization
@@ -3385,6 +3403,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 506080131}
     m_Modifications:
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_Range
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Color.b
       value: 0.02298672
       objectReference: {fileID: 0}
@@ -3398,11 +3420,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Intensity
-      value: 70
+      value: 500.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3494576831019906739, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_LocalScale.x
@@ -4364,6 +4390,7 @@ MonoBehaviour:
   interactionText: E - Reject
   interactableName: Rejected button
   canInteract: 1
+  filtroAuxiliar: {fileID: 0}
 --- !u!1 &1566636775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,28 +5353,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
   tasks:
   - id: Tarea1
-    message: Las luces presentan baja potencia. Aumente el generador al 120 %.
+    message: The lights are dim. Increase the generator output to 120%.
     type: 1
   - id: Tarea2
-    message: "Fallo detectado en la red principal. Active iluminaci\xF3n de emergencia"
+    message: A fault has been detected on the main power grid. Turn on the emergency
+      lighting. system. emergencia
     type: 0
   - id: Tarea3
-    message: "Interferencia cr\xEDtica detectada. Reinicie el sistema de comunicaciones."
+    message: Critical interference detected. Restart the communications system. comunicaciones.
     type: 1
   - id: Tarea4
-    message: "Sensor O\u2082 defectuoso. Desactive temporalmente la alarma."
+    message: "Faulty O\u2082 sensor. Temporarily disable the alarm."
     type: 0
   - id: Tarea5
-    message: Calidad del aire deteriorada. Active el filtro auxiliar.
+    message: Air quality has deteriorated. Turn on the auxiliary filter.
     type: 0
   - id: Tarea6
-    message: "Circuito seguro perdido. Reinicie la l\xEDnea telef\xF3nica"
+    message: Lost secure circuit. Restart the phone line.
     type: 0
   - id: Tarea7
-    message: Frecuencia actual interceptada. Cambie el receptor al canal B.
+    message: Current frequency intercepted. Switch the receiver to channel B.
     type: 1
   - id: Tarea8
-    message: "Actividad irregular detectada en el teletipo. Descon\xE9ctelo"
+    message: Irregular activity detected on the teletype. Please disconnect it.
     type: 1
   taskText: {fileID: 68997771}
   maxLegitimateRejected: 4
@@ -5585,6 +5613,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 506080131}
     m_Modifications:
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_Range
+      value: 7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Color.b
       value: 0.02298672
       objectReference: {fileID: 0}
@@ -5598,11 +5630,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_Intensity
-      value: 70
+      value: 500.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410838481776629552, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3494576831019906739, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
       propertyPath: m_LocalScale.x

@@ -42,6 +42,6 @@ public class BotonGeneradorInteractable : MonoBehaviour, IInteractable
         }
 
         RenderSettings.ambientIntensity = 0f;
-        
+
     }
 }
