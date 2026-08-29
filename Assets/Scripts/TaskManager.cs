@@ -189,12 +189,20 @@ public class TaskManager : MonoBehaviour
     private void TriggerVictory()
     {
         runFinished = true;
+        LiberarCursor();
         UnitySceneManager.LoadScene(victorySceneName);
     }
 
     private void TriggerGameOver()
     {
         runFinished = true;
+        LiberarCursor();
         UnitySceneManager.LoadScene(gameOverSceneName);
+    }
+
+    private void LiberarCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

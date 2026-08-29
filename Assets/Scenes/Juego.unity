@@ -353,7 +353,7 @@ MonoBehaviour:
   overrideCameraPitch: 0
   targetCameraPitch: 0
   canUse: 1
-  interactionText: Move
+  interactionText: Left click - Move
   customMoveDuration: -1
 --- !u!65 &10249944
 BoxCollider:
@@ -2304,7 +2304,7 @@ MonoBehaviour:
   overrideCameraPitch: 0
   targetCameraPitch: 0
   canUse: 1
-  interactionText: Move
+  interactionText: Left click - Move
   customMoveDuration: -1
 --- !u!1 &201669693
 GameObject:
@@ -12342,7 +12342,7 @@ MonoBehaviour:
   overrideCameraPitch: 0
   targetCameraPitch: 0
   canUse: 1
-  interactionText: Move
+  interactionText: Left click - Move
   customMoveDuration: -1
 --- !u!1 &1886221911
 GameObject:
