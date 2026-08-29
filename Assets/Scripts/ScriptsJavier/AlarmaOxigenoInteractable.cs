@@ -42,6 +42,8 @@ public class AlarmaOxigenoInteractable : MonoBehaviour, IInteractable
     [SerializeField] private float escalaPulsado = 0.85f;
     [SerializeField] private float duracionPulsado = 0.15f;
 
+    [SerializeField] private AudioSource UiBoton;
+
     private Coroutine parpadeoRoutine;
     private Vector3 escalaOriginal;
     private MaterialPropertyBlock propBlock;
@@ -117,6 +119,8 @@ public class AlarmaOxigenoInteractable : MonoBehaviour, IInteractable
         {
             StartCoroutine(AnimarPulsado());
         }
+
+        UiBoton.Play();
 
         if (botonAutorizar != null)
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TelefonoRojo : MonoBehaviour, IInteractable
+public class TelefonoRojo : MonoBehaviour, IInteractable, IContinuousHoldInteractable
 {
     [SerializeField] private string interactionText = "E - Interactuar";
     [SerializeField] private string interactableName = "Telefono rojo";
@@ -30,6 +30,16 @@ public class TelefonoRojo : MonoBehaviour, IInteractable
 
         Debug.Log("Interactuando con: " + interactableName);
         anim.SetBool("isUp", !anim.GetBool("isUp"));
+    }
+
+    public void SetHoldState(bool isHeld)
+    {
+        if (!canInteract || anim == null)
+        {
+            return;
+        }
+
+        anim.SetBool("isUp", isHeld);
     }
 
     private void Update()

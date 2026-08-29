@@ -13549,6 +13549,7 @@ MonoBehaviour:
   canInteract: 1
   botonAutorizar: {fileID: 1908314108}
   botonRechazar: {fileID: 1649175328}
+  globalVolume: {fileID: 319349250}
   Ox1: {fileID: 436110163}
   Ox2: {fileID: 1354537679}
 --- !u!1 &2025170837

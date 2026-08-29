@@ -12,6 +12,7 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
 
     private IInteractable currentInteractable;
+    private IContinuousHoldInteractable currentContinuousHoldInteractable;
     private float interactionHoldTime;
     private bool holdInteractionCompleted;
 
@@ -28,12 +29,21 @@ public class PlayerInteractor : MonoBehaviour
         if (detectedInteractable == currentInteractable)
         {
             RefreshInteractionUI();
+            UpdateContinuousHoldState();
             return;
+        }
+
+        if (currentContinuousHoldInteractable != null)
+        {
+            currentContinuousHoldInteractable.SetHoldState(false);
+            currentContinuousHoldInteractable = null;
         }
 
         ResetHoldInteraction();
         currentInteractable = detectedInteractable;
+        currentContinuousHoldInteractable = currentInteractable as IContinuousHoldInteractable;
         RefreshInteractionUI();
+        UpdateContinuousHoldState();
     }
 
     private IInteractable GetInteractableInView()
@@ -115,7 +125,17 @@ public class PlayerInteractor : MonoBehaviour
             || currentInteractable == null
             || !currentInteractable.CanInteract())
         {
+            if (currentContinuousHoldInteractable != null)
+            {
+                currentContinuousHoldInteractable.SetHoldState(false);
+            }
             ResetHoldInteraction();
+            return;
+        }
+
+        if (currentContinuousHoldInteractable != null)
+        {
+            UpdateContinuousHoldState();
             return;
         }
 
@@ -161,6 +181,17 @@ public class PlayerInteractor : MonoBehaviour
     {
         interactionHoldTime = 0f;
         holdInteractionCompleted = false;
+    }
+
+    private void UpdateContinuousHoldState()
+    {
+        if (currentContinuousHoldInteractable == null)
+        {
+            return;
+        }
+
+        bool isHolding = Keyboard.current != null && Keyboard.current.eKey.isPressed;
+        currentContinuousHoldInteractable.SetHoldState(isHolding);
     }
 
     private bool WasInteractionPressed()

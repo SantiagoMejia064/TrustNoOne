@@ -13,6 +13,8 @@ public class LucesEmergencia : MonoBehaviour, IInteractable
     [SerializeField] private Light[] lucesParaPrender;
     [SerializeField] private Light[] lucesParaApagar;
 
+    [SerializeField] private AudioSource UiBoton;
+
     public AudioSource apagon;
 
     private Coroutine parpadeoCoroutine;
@@ -56,6 +58,8 @@ public class LucesEmergencia : MonoBehaviour, IInteractable
         {
             botonAutorizar.Activar();
         }
+
+        UiBoton.Play();
 
         if (botonRechazar != null)
         {
