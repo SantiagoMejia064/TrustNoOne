@@ -8,6 +8,7 @@ public class BotonGeneradorInteractable : MonoBehaviour, IInteractable
     [SerializeField] private BotonAutorizar botonAutorizar;
     [SerializeField] private BotonRechazar botonRechazar;
     [SerializeField] private Light[] lucesParaApagar;
+    [SerializeField] private AudioSource Apagón;
 
     public string GetInteractionText()
     {
@@ -43,5 +44,9 @@ public class BotonGeneradorInteractable : MonoBehaviour, IInteractable
 
         RenderSettings.ambientIntensity = 0f;
 
+        if (Apagón != null)
+        {
+            Apagón.Play();
+        }
     }
 }

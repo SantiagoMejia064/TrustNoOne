@@ -15,6 +15,10 @@ public class IntroSequenceController : MonoBehaviour
     [Header("Audio de la radio")]
     [SerializeField] private AudioSource radioAudio;
 
+    [Header("Audio de escritura")]
+    [SerializeField] private AudioSource typingAudioSource;
+    [SerializeField, Range(0f, 1f)] private float typingSoundVolume = 0.6f;
+
     [Header("Lineas del dialogo (en orden, en ingles)")]
     [SerializeField, TextArea(2, 4)]
     private List<string> lines = new List<string>
@@ -47,6 +51,14 @@ public class IntroSequenceController : MonoBehaviour
     private void Start()
     {
         BloquearControlesDeJuego();
+
+        if (typingAudioSource != null)
+        {
+            typingAudioSource.playOnAwake = false;
+            typingAudioSource.loop = false;
+            typingAudioSource.spatialBlend = 0f;
+            typingAudioSource.volume = typingSoundVolume;
+        }
 
         if (introPanel != null)
         {
@@ -121,6 +133,7 @@ public class IntroSequenceController : MonoBehaviour
         foreach (char caracter in linea)
         {
             introText.text += caracter;
+            ReproducirSonidoDeEscritura(caracter);
             yield return new WaitForSeconds(delayPorCaracter);
         }
 
@@ -139,6 +152,8 @@ public class IntroSequenceController : MonoBehaviour
             StopCoroutine(typingRoutine);
             typingRoutine = null;
         }
+
+        DetenerSonidoDeEscritura();
 
         introText.text = lines[currentLineIndex];
         isTyping = false;
@@ -201,6 +216,35 @@ public class IntroSequenceController : MonoBehaviour
         {
             linternaController.enabled = true;
             linternaController.MostrarTexto();
+        }
+    }
+
+    private void ReproducirSonidoDeEscritura(char caracter)
+    {
+        if (typingAudioSource == null)
+        {
+            return;
+        }
+
+        if (char.IsWhiteSpace(caracter))
+        {
+            return;
+        }
+
+        if (typingAudioSource.clip == null)
+        {
+            return;
+        }
+
+        typingAudioSource.Stop();
+        typingAudioSource.Play();
+    }
+
+    private void DetenerSonidoDeEscritura()
+    {
+        if (typingAudioSource != null)
+        {
+            typingAudioSource.Stop();
         }
     }
 }

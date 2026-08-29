@@ -13,6 +13,8 @@ public class LucesEmergencia : MonoBehaviour, IInteractable
     [SerializeField] private Light[] lucesParaPrender;
     [SerializeField] private Light[] lucesParaApagar;
 
+    public AudioSource apagon;
+
     private Coroutine parpadeoCoroutine;
     private bool[] lucesOriginalmenteEncendidas;
 
@@ -177,5 +179,7 @@ public class LucesEmergencia : MonoBehaviour, IInteractable
         }
 
         RenderSettings.ambientIntensity = 0f;
+
+        apagon.Play();
     }
 }

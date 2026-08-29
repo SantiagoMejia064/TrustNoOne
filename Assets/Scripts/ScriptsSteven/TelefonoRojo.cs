@@ -1,50 +1,46 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class TelefonoRojo : MonoBehaviour
+public class TelefonoRojo : MonoBehaviour, IInteractable
 {
+    [SerializeField] private string interactionText = "E - Interactuar";
+    [SerializeField] private string interactableName = "Telefono rojo";
+    [SerializeField] private bool canInteract = true;
+
     public AudioSource audioEstatica;
     public Animator anim;
 
-    private NIS inputActions;
-
     [SerializeField] private TaskManager taskManager;
 
-    private void Awake()
+    public string GetInteractionText()
     {
-        inputActions = new NIS();
+        return interactionText;
     }
 
-
-    private void OnEnable()
+    public bool CanInteract()
     {
-        inputActions.Enable();
-        inputActions.Player.Interactuar.started += AbrirTelefono;
-        inputActions.Player.Interactuar.canceled += CerrarTelefono;
+        return canInteract;
     }
 
-    private void OnDisable()
+    public void Interact()
     {
-        inputActions.Player.Interactuar.started -= AbrirTelefono;
-        inputActions.Player.Interactuar.canceled -= CerrarTelefono;
-        inputActions.Disable();
-    }
+        if (!canInteract || anim == null)
+        {
+            return;
+        }
 
-    private void AbrirTelefono(InputAction.CallbackContext context)
-    {
-        anim.SetBool("isUp", true);
-    }
-
-
-    private void CerrarTelefono(InputAction.CallbackContext context)
-    {
-        anim.SetBool("isUp", false);
+        Debug.Log("Interactuando con: " + interactableName);
+        anim.SetBool("isUp", !anim.GetBool("isUp"));
     }
 
     private void Update()
     {
-        if (taskManager == null || audioEstatica == null)
+        if (taskManager == null || audioEstatica == null || anim == null)
         {
+            if (audioEstatica != null && audioEstatica.isPlaying)
+            {
+                audioEstatica.Stop();
+            }
+
             return;
         }
 
@@ -62,5 +58,4 @@ public class TelefonoRojo : MonoBehaviour
             audioEstatica.Stop();
         }
     }
-    
 }
