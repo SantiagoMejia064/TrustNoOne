@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
+using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
 /// <summary>
 /// Tipo de decision que puede tomar el jugador sobre una tarea.
@@ -189,12 +189,12 @@ public class TaskManager : MonoBehaviour
     private void TriggerVictory()
     {
         runFinished = true;
-        SceneManager.LoadScene(victorySceneName);
+        UnitySceneManager.LoadScene(victorySceneName);
     }
 
     private void TriggerGameOver()
     {
         runFinished = true;
-        SceneManager.LoadScene(gameOverSceneName);
+        UnitySceneManager.LoadScene(gameOverSceneName);
     }
 }
