@@ -85,7 +85,7 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-        StartRun();
+       // StartRun();
     }
 
     public void StartRun()

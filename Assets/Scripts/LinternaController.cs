@@ -76,6 +76,22 @@ public class LinternaController : MonoBehaviour
         CambiarEstado(false);
     }
 
+    public void OcultarTexto()
+    {
+        if (textoLinterna != null)
+        {
+            textoLinterna.gameObject.SetActive(false);
+        }
+    }
+
+    public void MostrarTexto()
+    {
+        if (textoLinterna != null)
+        {
+            textoLinterna.gameObject.SetActive(true);
+            ActualizarTextoLinterna();
+        }
+    }
     private void AplicarEstadoInicial()
     {
         estaEncendida = iniciarEncendida;

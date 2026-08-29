@@ -37,6 +37,11 @@ public class Movimiento : MonoBehaviour
         IsLookBlocked = isBlocked;
     }
 
+    public void SetCameraZonesEnabled(bool enabled)
+    {
+        enableCameraZones = enabled;
+    }
+
     private void Awake()
     {
         inputActions = new NIS();
@@ -368,5 +373,9 @@ public class Movimiento : MonoBehaviour
         }
 
         return angle;
+
+
+       
+
     }
 }
