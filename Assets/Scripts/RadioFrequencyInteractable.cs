@@ -37,9 +37,19 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
     [SerializeField] private Transform minPositionPoint;
     [SerializeField] private Transform maxPositionPoint;
 
+    [Header("Frequency Indicator")]
+    [SerializeField] private Transform frequencyIndicator;
+    [SerializeField] private Transform indicatorMinPoint;
+    [SerializeField] private Transform indicatorMaxPoint;
+
     [Header("Sabotage Feedback")]
     [SerializeField] private GameObject[] interferenceVisuals;
     [SerializeField] private AudioSource interferenceAudio;
+
+    [Header("Radio Audio")]
+    [SerializeField] private AudioSource tuningAudio;
+    [SerializeField] private AudioSource correctFrequencyAudio;
+    [SerializeField] private AudioSource rejectedStaticAudio;
 
     private bool isDragging;
     private bool taskDone;
@@ -59,6 +69,15 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
 
         ApplyDialMovement();
         SetInterferenceActive(false);
+    }
+
+    // Se suscribe al TaskManager para saber si el jugador rechaza esta tarea.
+    private void OnEnable()
+    {
+        if (taskManager != null)
+        {
+            taskManager.onTaskResolved.AddListener(OnTaskResolved);
+        }
     }
 
     // Escucha el mouse para arrastrar el dial solo cuando esta tarea esta activa.
@@ -87,10 +106,16 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
         }
     }
 
-    // Libera el bloqueo de camara si el objeto se desactiva mientras se arrastra.
+    // Libera eventos, sonidos y bloqueo de camara si el objeto se desactiva.
     private void OnDisable()
     {
+        if (taskManager != null)
+        {
+            taskManager.onTaskResolved.RemoveListener(OnTaskResolved);
+        }
+
         StopDragging();
+        StopAudio(tuningAudio);
     }
 
     // Muestra el texto de interaccion cuando el jugador mira el dial.
@@ -118,6 +143,7 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
     {
         isDragging = true;
         Movimiento.SetLookBlocked(true);
+        PlayLoopAudio(tuningAudio);
     }
 
     // Termina el arrastre del dial y devuelve el control de camara.
@@ -130,6 +156,7 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
 
         isDragging = false;
         Movimiento.SetLookBlocked(false);
+        StopAudio(tuningAudio);
     }
 
     // Revisa si el centro de la camara esta apuntando a este dial.
@@ -154,11 +181,17 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
         TryFinishTask();
     }
 
-    // Mueve visualmente el dial por rotacion o por desplazamiento.
+    // Mueve visualmente el dial y la aguja de frecuencia.
     private void ApplyDialMovement()
     {
         float t = Mathf.InverseLerp(minFrequency, maxFrequency, currentFrequency);
+        ApplyDialVisual(t);
+        ApplyFrequencyIndicator(t);
+    }
 
+    // Mueve el dial por rotacion o desplazamiento segun el modo elegido.
+    private void ApplyDialVisual(float t)
+    {
         if (movementMode == RadioFrequencyMovementMode.Rotate)
         {
             float angle = Mathf.Lerp(minAngle, maxAngle, t);
@@ -172,6 +205,17 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
         }
     }
 
+    // Desplaza la aguja entre dos puntos para mostrar la frecuencia actual.
+    private void ApplyFrequencyIndicator(float t)
+    {
+        if (frequencyIndicator == null || indicatorMinPoint == null || indicatorMaxPoint == null)
+        {
+            return;
+        }
+
+        frequencyIndicator.position = Vector3.Lerp(indicatorMinPoint.position, indicatorMaxPoint.position, t);
+    }
+
     // Completa la accion fisica cuando la frecuencia llega al canal B.
     private void TryFinishTask()
     {
@@ -183,9 +227,26 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
         taskDone = true;
         StopDragging();
         SetInterferenceActive(true);
+        PlayOneShotAudio(correctFrequencyAudio);
+        StopAudio(rejectedStaticAudio);
 
         botonAutorizar?.Activar();
         botonRechazar?.Desactivar();
+    }
+
+    // Reacciona cuando la tarea se resuelve desde Autorizar o Rechazar.
+    private void OnTaskResolved(TaskData task, DecisionType decision)
+    {
+        if (task == null || task.Id != taskId)
+        {
+            return;
+        }
+
+        if (decision == DecisionType.Reject)
+        {
+            StopDragging();
+            PlayLoopAudio(rejectedStaticAudio);
+        }
     }
 
     // Activa o desactiva el feedback de radio saboteada.
@@ -211,6 +272,39 @@ public class RadioFrequencyInteractable : MonoBehaviour, IInteractable
         else
         {
             interferenceAudio.Stop();
+        }
+    }
+
+    // Reproduce un sonido en loop si no estaba sonando.
+    private void PlayLoopAudio(AudioSource audioSource)
+    {
+        if (audioSource == null || audioSource.isPlaying)
+        {
+            return;
+        }
+
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    // Reproduce un sonido una sola vez desde el inicio.
+    private void PlayOneShotAudio(AudioSource audioSource)
+    {
+        if (audioSource == null)
+        {
+            return;
+        }
+
+        audioSource.loop = false;
+        audioSource.Play();
+    }
+
+    // Detiene un sonido si esta sonando.
+    private void StopAudio(AudioSource audioSource)
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
         }
     }
 }
