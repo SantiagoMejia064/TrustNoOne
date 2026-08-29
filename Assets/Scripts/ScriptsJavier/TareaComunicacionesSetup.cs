@@ -1,11 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// Se engancha DESPUES de TaskButtonsResetter (debe ir mas abajo en la
-/// lista del evento onNewTaskShown, en el Inspector) para dejar el boton
-/// Autorizar desactivado al inicio de esta tarea especifica, ya que aqui
-/// el jugador debe desconectar comunicaciones antes de poder autorizar.
-/// </summary>
+
 public class TareaComunicacionesSetup : MonoBehaviour
 {
     [Header("Debe coincidir EXACTO con el Id de esta tarea en el TaskManager")]
@@ -19,14 +14,15 @@ public class TareaComunicacionesSetup : MonoBehaviour
         if (taskManager != null)
         {
             taskManager.onNewTaskShown.AddListener(OnNewTaskShown);
+            taskManager.onTaskResolved.AddListener(OnTaskResolved);   // <-- ¿esta línea está?
         }
     }
-
     private void OnDisable()
     {
         if (taskManager != null)
         {
             taskManager.onNewTaskShown.RemoveListener(OnNewTaskShown);
+            taskManager.onTaskResolved.RemoveListener(OnTaskResolved);
         }
     }
 
@@ -40,6 +36,22 @@ public class TareaComunicacionesSetup : MonoBehaviour
         if (botonAutorizar != null)
         {
             botonAutorizar.Desactivar();
+        }
+    }
+
+    private void OnTaskResolved(TaskData task, DecisionType decision)
+    {
+        Debug.Log($"[TareaComunicacionesSetup] Resuelta: '{task.Id}' | Esperando: '{taskId}' | Decision: {decision}");
+
+        if (task.Id != taskId)
+        {
+            return;
+        }
+
+        if (decision == DecisionType.Authorize)
+        {
+            EstadoPartida.ComunicacionesComprometidas = true;
+            Debug.Log("[Cracker] Comunicaciones comprometidas: el proximo mensaje del teletipo sera alterado.");
         }
     }
 }

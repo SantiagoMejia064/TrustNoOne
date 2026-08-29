@@ -889,7 +889,8 @@ Transform:
   m_LocalPosition: {x: 2.3325574, y: 2.2951953, z: 3.0434303}
   m_LocalScale: {x: 0.76230854, y: 0.76230836, z: 0.76230854}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 494724266}
   m_Father: {fileID: 352889645}
   m_LocalEulerAnglesHint: {x: 0, y: 55.172, z: 0}
 --- !u!23 &323420256
@@ -1029,6 +1030,8 @@ MonoBehaviour:
   canInteract: 1
   botonAutorizar: {fileID: 961356898}
   botonRechazar: {fileID: 1537682755}
+  audioSource: {fileID: 494724267}
+  sonidoDesconectar: {fileID: 8300000, guid: 45cae8505f14f8340956c011fc6c82e3, type: 3}
 --- !u!1001 &327527979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,6 +1779,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 21263aec9659cbd4188be3c34a75d5b2, type: 3}
   m_PrefabInstance: {fileID: 707937128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &494724265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494724266}
+  - component: {fileID: 494724267}
+  m_Layer: 3
+  m_Name: AudioTurnOn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &494724266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494724265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 323420255}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &494724267
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494724265}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &506080130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,6 +2438,7 @@ MonoBehaviour:
   canInteract: 1
   botonAutorizar: {fileID: 961356898}
   botonRechazar: {fileID: 1537682755}
+  lucesParaApagar: []
 --- !u!1001 &702779049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3042,11 +3175,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonAutorizar
   taskManager: {fileID: 1721317070}
+  botonRechazar: {fileID: 0}
   activeInteractionText: E - authorize
   inactiveInteractionText: Complete the task to obtain authorization
   interactionText: Complete the task to obtain authorization
   interactableName: authorized button
   canInteract: 0
+  animatorPapel: {fileID: 0}
+  nombreAnimacionPapel: PapelAnim
+  audioPapel: {fileID: 0}
+  visualBoton: {fileID: 0}
+  escalaPulsado: 0.85
+  duracionPulsado: 0.15
 --- !u!1 &1079816566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,6 +3333,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1082953453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082953454}
+  - component: {fileID: 1082953455}
+  m_Layer: 0
+  m_Name: Efecto_CrackerTarea4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1082953454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082953453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1318189458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1082953455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082953453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71a83817421a9c49964e3ba6c2526a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeletipoCrackerEfecto
+  taskId: Tarea4
+  taskManager: {fileID: 1721317070}
+  taskText: {fileID: 68997771}
+  mensajeFalso: The enemy is trying to access the bunker, do not turn off the alarm.
 --- !u!4 &1187097887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3948892247008912910, guid: e3b6171c9be248a4b91041b1ddfb13fd, type: 3}
@@ -3836,7 +4024,8 @@ Transform:
   m_LocalPosition: {x: 22.22, y: 2.163, z: 65.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1082953454}
   m_Father: {fileID: 1566636776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1318189460
@@ -4411,6 +4600,14 @@ MonoBehaviour:
   interactionText: E - Reject
   interactableName: Rejected button
   canInteract: 1
+  animatorPapel: {fileID: 0}
+  nombreAnimacionPapel: PapelAnim
+  audioPapel: {fileID: 0}
+  visualBoton: {fileID: 0}
+  escalaPulsado: 0.85
+  duracionPulsado: 0.15
+  filtroAuxiliar: {fileID: 0}
+  lucesEmergencia: {fileID: 0}
 --- !u!1 &1566636775
 GameObject:
   m_ObjectHideFlags: 0

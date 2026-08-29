@@ -1,17 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// Objeto de la tarea de sabotaje "Reiniciar sistema de comunicaciones".
-/// El panel muestra que Comunicaciones esta estable (es una tarea de
-/// sabotaje), por lo que lo correcto es RECHAZAR sin tocar nada.
-///
-/// Si el jugador insiste en "obedecer" la orden falsa, primero debe
-/// desconectar las comunicaciones interactuando con este objeto. Al
-/// hacerlo:
-/// - Se habilita el boton Autorizar (antes estaba desactivado por defecto).
-/// - Se deshabilita el boton Rechazar (ya no tiene sentido rechazar algo
-///   que ya se desconecto).
-/// </summary>
+
 public class ComunicacionesDesconectarInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] private string interactionText = "E - Desconectar comunicaciones";
@@ -20,6 +9,10 @@ public class ComunicacionesDesconectarInteractable : MonoBehaviour, IInteractabl
 
     [SerializeField] private BotonAutorizar botonAutorizar;
     [SerializeField] private BotonRechazar botonRechazar;
+
+    [Header("Sonido al desconectar")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sonidoDesconectar;
 
     public string GetInteractionText()
     {
@@ -34,6 +27,11 @@ public class ComunicacionesDesconectarInteractable : MonoBehaviour, IInteractabl
     public void Interact()
     {
         Debug.Log("Interactuando con: " + interactableName);
+
+        if (audioSource != null && sonidoDesconectar != null)
+        {
+            audioSource.PlayOneShot(sonidoDesconectar);
+        }
 
         if (botonAutorizar != null)
         {
