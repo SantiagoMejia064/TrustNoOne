@@ -127,6 +127,15 @@ public partial class @NIS: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Linterna"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d5eba4d-5b31-4f31-af06-e8caa69e3794"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -239,6 +248,17 @@ public partial class @NIS: IInputActionCollection2, IDisposable
                     ""action"": ""Interactuar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d487d78c-774f-4ff5-a0c7-de139fa51e0e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Teclado"",
+                    ""action"": ""Linterna"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +294,7 @@ public partial class @NIS: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Interactuar = m_Player.FindAction("Interactuar", throwIfNotFound: true);
+        m_Player_Linterna = m_Player.FindAction("Linterna", throwIfNotFound: true);
     }
 
     ~@NIS()
@@ -358,6 +379,7 @@ public partial class @NIS: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Interactuar;
+    private readonly InputAction m_Player_Linterna;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -385,6 +407,10 @@ public partial class @NIS: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Interactuar".
         /// </summary>
         public InputAction @Interactuar => m_Wrapper.m_Player_Interactuar;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Linterna".
+        /// </summary>
+        public InputAction @Linterna => m_Wrapper.m_Player_Linterna;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -423,6 +449,9 @@ public partial class @NIS: IInputActionCollection2, IDisposable
             @Interactuar.started += instance.OnInteractuar;
             @Interactuar.performed += instance.OnInteractuar;
             @Interactuar.canceled += instance.OnInteractuar;
+            @Linterna.started += instance.OnLinterna;
+            @Linterna.performed += instance.OnLinterna;
+            @Linterna.canceled += instance.OnLinterna;
         }
 
         /// <summary>
@@ -446,6 +475,9 @@ public partial class @NIS: IInputActionCollection2, IDisposable
             @Interactuar.started -= instance.OnInteractuar;
             @Interactuar.performed -= instance.OnInteractuar;
             @Interactuar.canceled -= instance.OnInteractuar;
+            @Linterna.started -= instance.OnLinterna;
+            @Linterna.performed -= instance.OnLinterna;
+            @Linterna.canceled -= instance.OnLinterna;
         }
 
         /// <summary>
@@ -540,5 +572,12 @@ public partial class @NIS: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractuar(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Linterna" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLinterna(InputAction.CallbackContext context);
     }
 }
