@@ -125,25 +125,21 @@ public class Movimiento : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            ClearHoveredZone();
+            if (interactionUI != null)
+            {
+                interactionUI.HideInteraction();
+            }
         }
 
         HandleCameraZoneClick();
-       
     }
+
     private void UpdateCameraZoneInteractionUI()
     {
-        if (interactionUI == null)
+        if (!enableCameraZones || zoneMoveRoutine != null || IsLookBlocked || Cursor.lockState != CursorLockMode.Locked)
         {
-            return;
-        }
-
-        if (!enableCameraZones || zoneMoveRoutine != null || IsLookBlocked)
-        {
-            if (currentHoveredZone != null)
-            {
-                currentHoveredZone = null;
-                interactionUI.HideInteraction();
-            }
+            ClearHoveredZone();
             return;
         }
 
@@ -151,17 +147,25 @@ public class Movimiento : MonoBehaviour
 
         if (zone == null || !zone.CanUse || zone.DestinationPoint == null)
         {
-            if (currentHoveredZone != null)
-            {
-                currentHoveredZone = null;
-                interactionUI.HideInteraction();
-            }
+            ClearHoveredZone();
             return;
         }
 
-        currentHoveredZone = zone;
+        if (currentHoveredZone != zone)
+        {
+            ClearHoveredZone();
+            currentHoveredZone = zone;
+            currentHoveredZone.SetHovered(true);
+        }
+
+        if (interactionUI == null)
+        {
+            return;
+        }
+
         interactionUI.ShowInteraction(zone.InteractionText);
     }
+
     private void LateUpdate()
     {
         if (!TryResolveCameraTransform())
@@ -203,6 +207,12 @@ public class Movimiento : MonoBehaviour
             return;
         }
 
+        ClearHoveredZone();
+        if (interactionUI != null)
+        {
+            interactionUI.HideInteraction();
+        }
+
         zoneMoveRoutine = StartCoroutine(MoveToCameraZone(zone));
     }
 
@@ -226,6 +236,7 @@ public class Movimiento : MonoBehaviour
     private IEnumerator MoveToCameraZone(CameraMoveZone zone)
     {
         SetLookBlocked(true);
+        ClearHoveredZone();
 
         Vector3 startPosition = transform.position;
         Vector3 targetPosition = zone.DestinationPoint.position;
@@ -269,6 +280,17 @@ public class Movimiento : MonoBehaviour
 
         SetLookBlocked(false);
         zoneMoveRoutine = null;
+    }
+
+    private void ClearHoveredZone()
+    {
+        if (currentHoveredZone == null)
+        {
+            return;
+        }
+
+        currentHoveredZone.SetHovered(false);
+        currentHoveredZone = null;
     }
 
     private float GetZoneTargetYaw(CameraMoveZone zone, Vector3 targetPosition, float fallbackYaw)

@@ -16,9 +16,17 @@ public class CameraMoveZone : MonoBehaviour
     public string InteractionText => interactionText;
     [SerializeField] private float customMoveDuration = -1f;
 
+    [Header("Highlight")]
+    [SerializeField] private bool highlightOnLook = true;
+    [SerializeField] private GameObject highlightTargetObject;
+    [SerializeField] private Material highlightMaterial;
+
     [SerializeField] private GameObject[] moveZones;
     private Collider[] cachedColliders;
     private Renderer[] cachedRenderers;
+    private Renderer[] highlightRenderers;
+    private Material[][] originalHighlightMaterials;
+    private bool isHovered;
 
     public Transform DestinationPoint => destinationPoint;
     public Transform LookAtTarget => lookAtTarget;
@@ -29,16 +37,34 @@ public class CameraMoveZone : MonoBehaviour
     public bool HasCustomMoveDuration => customMoveDuration >= 0f;
     public float CustomMoveDuration => customMoveDuration;
 
+    public void SetHovered(bool hovered)
+    {
+        if (isHovered == hovered)
+        {
+            return;
+        }
+
+        isHovered = hovered;
+        ApplyHighlightState();
+    }
+
     public void SetCanUse(bool value)
     {
         canUse = value;
+
+        if (!value)
+        {
+            SetHovered(false);
+        }
     }
 
     private void Awake()
     {
         cachedColliders = GetComponentsInChildren<Collider>(true);
         cachedRenderers = GetComponentsInChildren<Renderer>(true);
+        CacheHighlightRenderers();
         ApplyUsableState(canUse);
+        ApplyHighlightState();
     }
 
     public void ActivateZone()
@@ -50,6 +76,7 @@ public class CameraMoveZone : MonoBehaviour
 
     public void OnPlayerArrived()
     {
+        SetHovered(false);
         canUse = false;
         ApplyUsableState(false);
 
@@ -80,6 +107,110 @@ public class CameraMoveZone : MonoBehaviour
         if (disableAfterUse)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        SetHovered(false);
+    }
+
+    private void CacheHighlightRenderers()
+    {
+        GameObject target = highlightTargetObject != null ? highlightTargetObject : gameObject;
+        highlightRenderers = target.GetComponentsInChildren<Renderer>(true);
+
+        if (highlightRenderers == null || highlightRenderers.Length == 0)
+        {
+            originalHighlightMaterials = null;
+            return;
+        }
+
+        originalHighlightMaterials = new Material[highlightRenderers.Length][];
+
+        for (int i = 0; i < highlightRenderers.Length; i++)
+        {
+            Renderer zoneRenderer = highlightRenderers[i];
+            if (zoneRenderer == null)
+            {
+                continue;
+            }
+
+            originalHighlightMaterials[i] = zoneRenderer.sharedMaterials;
+        }
+    }
+
+    private void ApplyHighlightState()
+    {
+        if (highlightRenderers == null || highlightRenderers.Length == 0)
+        {
+            CacheHighlightRenderers();
+        }
+
+        if (highlightRenderers == null || highlightRenderers.Length == 0)
+        {
+            return;
+        }
+
+        if (!highlightOnLook || !canUse || highlightMaterial == null)
+        {
+            RestoreHighlightMaterials();
+            return;
+        }
+
+        if (!isHovered)
+        {
+            RestoreHighlightMaterials();
+            return;
+        }
+
+        for (int i = 0; i < highlightRenderers.Length; i++)
+        {
+            Renderer zoneRenderer = highlightRenderers[i];
+            if (zoneRenderer == null)
+            {
+                continue;
+            }
+
+            Material[] originalMaterials = originalHighlightMaterials != null && i < originalHighlightMaterials.Length
+                ? originalHighlightMaterials[i]
+                : null;
+
+            if (originalMaterials == null || originalMaterials.Length == 0)
+            {
+                continue;
+            }
+
+            Material[] highlightedMaterials = new Material[originalMaterials.Length];
+            for (int m = 0; m < highlightedMaterials.Length; m++)
+            {
+                highlightedMaterials[m] = highlightMaterial;
+            }
+
+            zoneRenderer.sharedMaterials = highlightedMaterials;
+        }
+    }
+
+    private void RestoreHighlightMaterials()
+    {
+        if (highlightRenderers == null || originalHighlightMaterials == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < highlightRenderers.Length; i++)
+        {
+            Renderer zoneRenderer = highlightRenderers[i];
+            Material[] originalMaterials = i < originalHighlightMaterials.Length
+                ? originalHighlightMaterials[i]
+                : null;
+
+            if (zoneRenderer == null || originalMaterials == null)
+            {
+                continue;
+            }
+
+            zoneRenderer.sharedMaterials = originalMaterials;
         }
     }
 
