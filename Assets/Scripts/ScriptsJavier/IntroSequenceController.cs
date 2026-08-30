@@ -48,17 +48,19 @@ public class IntroSequenceController : MonoBehaviour
     private bool sequenceFinished;
     private Coroutine typingRoutine;
 
-    private void Start()
+    private void Awake()
     {
+        DetenerSonidoDeEscritura();
         BloquearControlesDeJuego();
 
-        if (typingAudioSource != null)
+        /*if (typingAudioSource != null)
         {
             typingAudioSource.playOnAwake = false;
             typingAudioSource.loop = false;
             typingAudioSource.spatialBlend = 0f;
             typingAudioSource.volume = typingSoundVolume;
-        }
+        }*/
+        
 
         if (introPanel != null)
         {
@@ -70,6 +72,7 @@ public class IntroSequenceController : MonoBehaviour
             radioAudio.Play();
         }
 
+        
         AvanzarLinea();
     }
 
@@ -137,6 +140,8 @@ public class IntroSequenceController : MonoBehaviour
             yield return new WaitForSeconds(delayPorCaracter);
         }
 
+        DetenerSonidoDeEscritura();
+
         isTyping = false;
 
         if (continuePrompt != null)
@@ -168,6 +173,12 @@ public class IntroSequenceController : MonoBehaviour
     {
         sequenceFinished = true;
 
+        DetenerSonidoDeEscritura();
+
+        if (radioAudio != null)
+        {
+            radioAudio.Stop();
+        }
         if (introPanel != null)
         {
             introPanel.SetActive(false);
